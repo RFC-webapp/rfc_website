@@ -62,17 +62,17 @@ const page = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center w-4/5 mx-auto pt-12">
         <div className="flex flex-col items-center">
-          <div className="bg-gray-100 border border-white rounded-full p-4 mb-2">
-            <HiMail className="text-blue-900 text-4xl" />
+          <div className="bg-gray-100 border border-white rounded-full p-2 mb-2 w-15 h-15 flex items-center justify-center">
+            <HiMail className="text-blue-900 text-3xl" />
           </div>
           <span className="font-bold text-lg mb-1">Email</span>
           <p className="text-gray-700 mb-1">Our friendly team is here to talk</p>
-          <p className="text-blue-900 font-bold">test@gmail.com</p>
+          <p className="text-blue-900 font-bold underline cursor-pointer">test@gmail.com</p>
         </div>
 
         <div className="flex flex-col items-center">
-          <div className="bg-gray-100 border border-white rounded-full p-4 mb-2">
-            <HiLocationMarker className="text-blue-900 text-4xl" />
+          <div className="bg-gray-100 border border-white rounded-full p-2 mb-2 w-15 h-15 flex items-center justify-center">
+            <HiLocationMarker className="text-blue-900 text-3xl" />
           </div>
           <span className="font-bold text-lg mb-1">Church</span>
           <p className="text-gray-700 mb-1">Come say hello at our church building</p>
@@ -80,8 +80,8 @@ const page = () => {
         </div>
 
         <div className="flex flex-col items-center">
-          <div className="bg-gray-100 border border-white rounded-full p-4 mb-2">
-            <HiPhone className="text-blue-900 text-4xl" />
+          <div className="bg-gray-100 border border-white rounded-full p-2 mb-2 w-15 h-15 flex items-center justify-center">
+            <HiPhone className="text-blue-900 text-3xl" />
           </div>
           <span className="font-bold text-lg mb-1">Call</span>
           <p className="text-gray-700 mb-1">Mon-Fri from 8am to 5pm</p>
