@@ -1,20 +1,23 @@
-import React from 'react';
-import { HiMail, HiLocationMarker, HiPhone } from 'react-icons/hi';
-
+import React from "react";
+import { HiMail, HiLocationMarker, HiPhone } from "react-icons/hi";
 
 const page = () => {
   return (
     <div className="w-full px-6 py-16">
-      <hr className="w-full border-1 mb-6" />
+      <hr className="w-full border mb-6" />
 
       <h1 className="text-6xl font-bold mb-4 text-left">CONTACT</h1>
 
-      <hr className="w-full border-1 mb-6" />
+      <hr className="w-full border mb-6" />
 
       <div className="text-center mb-12">
         <h3 className="text-2xl font-bold text-blue-900 mb-2">Contact Us</h3>
-        <p className="text-3xl font-bold text-black-700 mb-1">We'd love to hear from you</p>
-        <p className="text-black-600">Our friendly team is always here to chat.</p>
+        <p className="text-3xl font-bold text-black-700 mb-1">
+          We&apos;d love to hear from you
+        </p>
+        <p className="text-black-600">
+          Our friendly team is always here to chat.
+        </p>
       </div>
 
       <div className="flex flex-col md:flex-row gap-10 mb-12">
@@ -66,7 +69,9 @@ const page = () => {
             <HiMail className="text-blue-900 text-4xl" />
           </div>
           <span className="font-bold text-lg mb-1">Email</span>
-          <p className="text-gray-700 mb-1">Our friendly team is here to talk</p>
+          <p className="text-gray-700 mb-1">
+            Our friendly team is here to talk
+          </p>
           <p className="text-blue-900 font-bold">test@gmail.com</p>
         </div>
 
@@ -75,8 +80,12 @@ const page = () => {
             <HiLocationMarker className="text-blue-900 text-4xl" />
           </div>
           <span className="font-bold text-lg mb-1">Church</span>
-          <p className="text-gray-700 mb-1">Come say hello at our church building</p>
-          <p className="text-blue-900 font-bold">Tekobo Junction, Idi-aba, Abeokuta</p>
+          <p className="text-gray-700 mb-1">
+            Come say hello at our church building
+          </p>
+          <p className="text-blue-900 font-bold">
+            Tekobo Junction, Idi-aba, Abeokuta
+          </p>
         </div>
 
         <div className="flex flex-col items-center">
@@ -91,4 +100,4 @@ const page = () => {
     </div>
   );
 };
-export default page
+export default page;
