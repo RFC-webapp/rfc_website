@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ChurchLogo } from "@/public/icons";
+// import { ChurchLogo } from "@/public/icons";
 import { MdLogin } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
+import Image from "next/image";
 
 export const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,7 +17,13 @@ export const NavBar = () => {
         <div className="w-full flex justify-between items-center px-4 md:px-8 font-medium text-[16px]">
           {/* Logo */}
           <div>
-            <ChurchLogo />
+            {/* <ChurchLogo /> */}
+            <Image
+              src="/church-logo.png"
+              alt="church logo"
+              width={40}
+              height={40}
+            />
           </div>
 
           {/* Desktop Links */}
@@ -24,10 +31,10 @@ export const NavBar = () => {
             <Link href="/">HOME</Link>
             <Link href="/">ABOUT</Link>
             <Link href="/">GIVE</Link>
-            <Link href="/">E-LIBRARY</Link>
+            {/* <Link href="/">E-LIBRARY</Link> */}
             <Link href="/">MEDIA</Link>
-            <Link href="/">BLOG</Link>
-            <Link href="/">ANNOUNCEMENT</Link>
+            {/* <Link href="/">BLOG</Link> */}
+            {/* <Link href="/">ANNOUNCEMENT</Link> */}
             <Link href="/">CONTACT</Link>
           </div>
 

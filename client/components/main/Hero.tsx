@@ -4,7 +4,7 @@ import { WatchIcon } from "@/public/icons";
 
 export default function Hero() {
   return (
-    <div className="relative w-full h-[80vh]">
+    <div className="relative w-full h-screen">
       <Image
         priority
         className="w-full h-full object-cover"

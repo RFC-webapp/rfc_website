@@ -3,7 +3,7 @@ import { HiMail, HiLocationMarker, HiPhone } from "react-icons/hi";
 
 const page = () => {
   return (
-    <div className="container mx-auto my-12">
+    <div className="container mx-auto mt-20 mb-12">
       {/* <hr className="border mb-6" /> */}
 
       {/* <h1 className="text-6xl font-bold mb-4 text-left">CONTACT</h1> */}
