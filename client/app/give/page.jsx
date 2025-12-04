@@ -12,7 +12,7 @@ export default function GivePage() {
     "Are there other ways to give besides online?",
     "Is my payment information and privacy secured?",
     "How do I set up recurring giving?",
-    "What is pastor’s offering?",
+    "What is pastor's offering?",
   ];
 
   const content =
@@ -26,7 +26,7 @@ export default function GivePage() {
     <div className="w-full">
       <div className="w-full bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-8 pt-8 pb-12">
-          <h2 className="text-3xl font-bold text-blue-950">Give</h2>
+          <h2 className="text-3xl font-bold mt-12 text-blue-950">Give</h2>
 
           <div className="mt-10 bg-gray-100 rounded-full px-3 py-2 flex items-center w-full max-w-xs">
             <Image
