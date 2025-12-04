@@ -111,7 +111,7 @@ export default function GivePage() {
                   <div className="bg-white p-4 rounded-md shadow-sm flex flex-col mt-4 w-1/2">
                     <div className="flex items-center justify-between">
                       <div className="text-xs text-gray-600 flex items-center gap-2">
-                        <img src="/logos/gtbank.png" className="w-5 h-5" />
+                        <img src="/logos/gtbank-img.png" className="w-5 h-5" />
                         <span>Guaranty Trust Bank</span>
                       </div>
                     </div>
@@ -145,7 +145,7 @@ export default function GivePage() {
 
                         <div className="bg-white rounded-md shadow-sm p-4">
                           <div className="text-sm text-gray-600 flex items-center gap-2">
-                            <img src="/logos/stanbic.png" className="w-4 h-4" /> Stanbic
+                            <img src="/logos/stanbic.png" className="w-5 h-5" /> Stanbic
                           </div>
 
                           <div className="flex items-center justify-between mt-4 w-full">
@@ -174,7 +174,7 @@ export default function GivePage() {
 
                         <div className="bg-white rounded-md shadow-sm p-4">
                           <div className="text-sm text-gray-600 flex items-center gap-2">
-                            <img src="/logos/gtbank.png" className="w-4 h-4" /> Guaranty Trust Bank
+                            <img src="/logos/gtbank-img.png" className="w-5 h-5" /> Guaranty Trust Bank
                           </div>
                           <div className="flex items-center justify-between mt-4 w-full">
                             <div className="text-xl font-semibold">0032709990</div>
