@@ -3,20 +3,14 @@ import { MdFacebook } from "react-icons/md";
 import { FaInstagram } from "react-icons/fa6";
 import { FiYoutube } from "react-icons/fi";
 import { HiMail, HiLocationMarker, HiPhone } from "react-icons/hi";
+import Link from "next/link";
 
 export const Footer = () => {
   return (
     <footer className="w-full bg-[#222357] text-white">
       <div
         className="
-          container mx-auto 
-          flex flex-col 
-          md:flex-row md:flex-wrap 
-          gap-10 md:gap-6 
-          justify-between 
-          px-4 md:px-0 
-          py-16
-        "
+          container mx-auto flex flex-col md:flex-row md:flex-wrap gap-10 md:gap-6 justify-between px-4 md:px-0 py-16"
       >
         {/* 1 */}
         <div className="font-normal text-[16px] flex flex-col gap-3 md:w-[45%] lg:w-auto">
@@ -39,20 +33,23 @@ export const Footer = () => {
         </div>
 
         {/* 2 */}
-        {/* <div className="text-center font-normal">
-          <h4 className=" text-[16px]">Quick Links</h4>
-          <ul className="text-[12px] text-left">
-            <li>About Us</li>
+        <div className="text-center font-normal">
+          <h4 className="text-[16px]">Quick Links</h4>
+          <ul className="text-[14px] pt-2">
+            {/* <li>About Us</li>
             <li>Sermons</li>
             <li>Events</li>
-            <li>Blog</li>
+            <li>Blog</li> */}
+            <li>
+              <Link href="/faqs">FAQs</Link>
+            </li>
           </ul>
-        </div> */}
+        </div>
 
         {/* 3 */}
-        <div className="md:w-[30%] lg:w-auto">
-          <h4 className="font-normal mb-2 text-[16px]">Connect With Us</h4>
-          <div className="flex gap-6 items-center">
+        <div className="md:w-[30%] text-center lg:w-auto">
+          <h4 className="font-normal pb-2 text-[16px]">Connect With Us</h4>
+          <div className="flex gap-6 justify-center items-center">
             <MdFacebook size={24} color="#73B834" />
             <FaInstagram size={24} color="#73B834" />
             <FiYoutube size={24} color="#73B834" />
@@ -77,7 +74,7 @@ export const Footer = () => {
                 className="flex-1 text-center text-sm outline-none p-3"
               />
 
-              <Button className="bg-[#73B834] text-[#222357] px-4 py-5 text-sm font-medium">
+              <Button className="bg-[#73B834] text-[#222357] border-[#73B834] px-4 py-5 border-2 text-sm font-medium">
                 Subscribe
               </Button>
             </div>
