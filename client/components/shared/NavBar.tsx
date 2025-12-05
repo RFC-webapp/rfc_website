@@ -18,7 +18,7 @@ export const NavBar = () => {
     <>
       {/* Navbar */}
       <nav className="fixed top-0 left-0 w-full bg-white text-[#2A1870] py-3 z-50 shadow">
-        <div className="w-full flex mx-auto container justify-between items-center px-2 md:px-0 font-medium text-[16px]">
+        <div className="w-full flex mx-auto container justify-between items-center px-2 lg:px-0 font-medium text-[16px]">
           {/* Logo */}
           <div>
             <Image src="/church-logo.png" alt="logo" width={40} height={40} />
