@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { BlogCard } from '../blog/card';
+import { BlogCard } from '../media/ElibraryCard';
 import { Button } from '../ui/button';
 
 export default function Blog() {
