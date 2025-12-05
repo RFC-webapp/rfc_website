@@ -47,9 +47,9 @@ export const Footer = () => {
         </div>
 
         {/* 3 */}
-        <div className="md:w-[30%] lg:w-auto">
+        <div className="md:w-[30%] text-center lg:w-auto">
           <h4 className="font-normal pb-2 text-[16px]">Connect With Us</h4>
-          <div className="flex gap-6 items-center">
+          <div className="flex gap-6 justify-center items-center">
             <MdFacebook size={24} color="#73B834" />
             <FaInstagram size={24} color="#73B834" />
             <FiYoutube size={24} color="#73B834" />
