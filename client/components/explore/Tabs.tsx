@@ -30,7 +30,7 @@ const ExploreTabs = () => {
   return (
     <div className="w-full mt-6">
       {/* TAB BUTTONS */}
-      <div className="flex w-full">
+      {/* <div className="flex w-full">
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -48,12 +48,14 @@ const ExploreTabs = () => {
             {tab.label}
           </button>
         ))}
-      </div>
+      </div> */}
 
       {/* TAB CONTENT */}
-      <div className="mt-12">
+      {/* <div className="mt-12">
         {renderContent()}
-      </div>
+      </div> */}
+
+      <LibraryTab />
     </div>
   );
 };
