@@ -56,7 +56,7 @@ export default function FAQSection({ title, faqs }: FAQSectionProps) {
         ))}
       </Accordion>
 
-      <div className="mt-10 text-[20px] text-center font-semibold text-[#000000]">
+      <div className="mt-10 text-[20px] text-center  font-semibold text-[#000000]">
         Have questions about giving?{" "}
         <Link href="/give" className="">
           View our Giving FAQs →
