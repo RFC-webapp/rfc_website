@@ -36,42 +36,44 @@ export default function page() {
         </div>
       </section>
 
-      <section className="w-full flex justify-center items-center my-10">
-        <div className="flex gap-6">
-          <div className="w-[280px] h-[380px] rounded-3xl overflow-hidden">
+      <section className="w-full hidden md:flex justify-center items-center my-10">
+        <div className="flex flex-col md:flex-row gap-6 items-center">
+          <div className="w-full md:w-[280px] h-[380px] rounded-3xl overflow-hidden flex justify-center">
             <Image
               src="/images/about-1.png"
               alt="About Us"
               width={280}
               height={380}
-              // className="w-full h-full object-cover"
+              className="object-contain" 
             />
           </div>
-
-          <div className="w-[340px] h-[460px] rounded-3xl overflow-hidden">
+          <div className="w-full md:w-[340px] h-[460px] rounded-3xl overflow-hidden flex justify-center">
             <Image
               src="/images/about-2.png"
               alt="About Us"
               width={340}
               height={460}
-              // className="w-full h-full object-cover"
+              className="object-contain"
             />
           </div>
-
-          <div className="w-[280px] h-[380px] rounded-3xl overflow-hidden">
+          <div className="w-full md:w-[280px] h-[380px] rounded-3xl overflow-hidden flex justify-center">
             <Image
               src="/images/about-3.png"
               alt="About Us"
               width={280}
               height={380}
-              // className="w-full h-full object-cover"
+              className="object-contain"
             />
           </div>
         </div>
       </section>
 
-      <section className="flex justify-center items-center gap-x-5.5 my-10">
-        <div className="w-[372px]">
+      <div
+      // className="w-full h-full object-cover"
+      ></div>
+
+      <section className="flex flex-col md:flex-row justify-center items-center gap-10 my-10 px-5">
+        <div className="w-full md:w-[372px] text-center md:text-left">
           <h5 className="font-normal text-[16px]">OUR MISSION & VISION</h5>
           <h2 className="font-semibold text-[32px]">
             from freedom to fruitfulness
@@ -85,7 +87,7 @@ export default function page() {
           </p>
         </div>
 
-        <div className="w-[372px]">
+        <div className="w-full md:w-[372px] text-center md:text-left">
           <h5 className="font-normal text-[16px]">WHAT WE DO</h5>
           <h2 className="font-semibold text-[32px]">
             making matured followers of christ
@@ -100,7 +102,7 @@ export default function page() {
         </div>
       </section>
 
-      <section className="mx-auto container text-center my-15">
+      <section className="mx-auto container text-center my-15 px-4">
         <h1 className="font-bold text-[30px] md:text-[48px]">OUR SERVICE</h1>
         <p className="text-[16px] font-normal px-2 md:px-0 md:w-5/8 mx-auto my-6">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -124,8 +126,8 @@ export default function page() {
       </section>
 
       <section className="bg-[#222357] text-white mb-15">
-        <div className="flex justify-center gap-x-[50px] mx-auto container py-[60px] items-center">
-          <div className="w-1/2 relative h-[500px]">
+        <div className="flex flex-col md:flex-row justify-center gap-x-[50px] mx-auto container py-[60px] items-center px-4">
+          <div className="w-full md:w-1/2 relative h-[300px] md:h-[500px]">
             <Image
               src="/images/about-4.png"
               alt="About Us"
@@ -134,7 +136,7 @@ export default function page() {
             />
           </div>
 
-          <div className="w-1/2 font-poppins">
+          <div className="w-full md:w-1/2 font-poppins mt-8 md:mt-0">
             <h4 className="font-bold text-[24px] mb-4">Our lead pastor</h4>
             <p className="font-normal text-[16px] mb-4">
               Rev Tunde Amosun is the visionary founder and Lead Pastor of Rock
@@ -166,8 +168,8 @@ export default function page() {
         </div>
       </section>
 
-      <section className="text-center shadow-lg my-15 py-10">
-        <div className="container mx-auto ">
+      <section className="text-center shadow-lg my-15 py-10 px-4">
+        <div className="container mx-auto">
           <div className="flex justify-center">
             <div className="flex items-center gap-2 border rounded-lg px-3 py-1 bg-white">
               <FaBible className="text-black/60" />
@@ -177,11 +179,14 @@ export default function page() {
             </div>
           </div>
 
-          <h1 className="text-[36px] font-black">MY RFC EXPERIENCE</h1>
-          <p className="text-[#00000080] text-[20px] font-normal pb-10">
+          <h1 className="text-[28px] md:text-[36px] font-black">
+            MY RFC EXPERIENCE
+          </h1>
+          <p className="text-[#00000080] text-[16px] md:text-[20px] font-normal pb-10">
             Read Testimonies From Our Members
           </p>
-          <div className="flex justify-between gap-x-[50px] text-left">
+
+          <div className="flex flex-col md:flex-row justify-between gap-10 text-left">
             <div className="">
               <h5 className="text-[#111827] font-semibold text-[18px] pb-3">
                 Favor in Relocation Process
@@ -259,47 +264,25 @@ export default function page() {
         </div>
       </section>
 
-      <section className="mx-auto container">
+      <section className="mx-auto container px-4">
         <h3 className="text-center text-black/60 text-[16px] rounded-lg bg-black/4 px-4 py-1 w-fit mx-auto my-0">
           Need GODLY Counseling?
         </h3>
-        <h1 className="font bold font-poppins text-[48px] pb-14 text-center">
+        <h1 className="font bold font-poppins text-[32px] md:text-[48px] pb-14 text-center">
           See our counselling teams
         </h1>
 
-        <div className="flex justify-around items-center gap-x-2 mb-10">
-          <div className="w-1/2">
-            <h1 className="font-bold text-[32px] font-poppins">
-              Relationship team
-            </h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit.
-            </p>
-          </div>
+        <div className="flex flex-col md:flex-row justify-around items-center gap-x-2 mb-10">
           <Image
             src="/images/counselling.png"
             alt=""
             width={500}
             height={320}
-            className="w-[500px] h-auto object-cover"
+            className="w-full md:w-[500px] h-auto object-cover order-first md:order-last"
             quality={100}
           />
-        </div>
 
-        <div className="flex justify-around items-center gap-x-2 mb-10">
-          <Image
-            src="/images/counselling.png"
-            alt=""
-            width={500}
-            height={320}
-            className="w-[500px] h-auto object-cover"
-            quality={100}
-          />
-          <div className="w-1/2">
+          <div className="w-full md:w-1/2 order-last md:order-first">
             <h1 className="font-bold text-[32px] font-poppins">
               Relationship team
             </h1>
@@ -313,8 +296,16 @@ export default function page() {
           </div>
         </div>
 
-        <div className="flex justify-around items-center gap-x-2 mb-10">
-          <div className="w-1/2">
+        <div className="flex flex-col-reverse md:flex-row justify-around items-center gap-x-2 mb-10">
+          <Image
+            src="/images/counselling.png"
+            alt=""
+            width={500}
+            height={320}
+            className="w-full md:w-[500px] h-auto object-cover"
+            quality={100}
+          />
+          <div className="w-full md:w-1/2">
             <h1 className="font-bold text-[32px] font-poppins">
               Relationship team
             </h1>
@@ -326,26 +317,42 @@ export default function page() {
               reprehenderit.
             </p>
           </div>
-          <Image
-            src="/images/counselling.png"
-            alt=""
-            width={500}
-            height={320}
-            className="w-[500px] h-auto object-cover"
-            quality={100}
-          />
         </div>
 
-        <div className="flex justify-around items-center gap-x-2 mb-10">
+        <div className="flex flex-col md:flex-row justify-around items-center gap-x-2 mb-10">
           <Image
             src="/images/counselling.png"
             alt=""
             width={500}
             height={320}
-            className="w-[500px] h-auto object-cover"
+            className="w-full md:w-[500px] h-auto object-cover order-first md:order-last"
             quality={100}
           />
-          <div className="w-1/2">
+
+          <div className="w-full md:w-1/2 order-last md:order-first">
+            <h1 className="font-bold text-[32px] font-poppins">
+              Relationship team
+            </h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit.
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-col-reverse md:flex-row justify-around items-center gap-x-2 mb-10">
+          <Image
+            src="/images/counselling.png"
+            alt=""
+            width={500}
+            height={320}
+            className="w-full md:w-[500px] h-auto object-cover"
+            quality={100}
+          />
+          <div className="w-full md:w-1/2">
             <h1 className="font-bold text-[32px] font-poppins">
               Relationship team
             </h1>
@@ -360,13 +367,13 @@ export default function page() {
         </div>
       </section>
 
-      <section className="mx-auto container my-25 text-center">
+      <section className="mx-auto container my-25 text-center px-4">
         <h3 className="font-normal text-[16px] font-poppins">PREACHING TEAM</h3>
-        <h1 className="font-bold font-poppins text-[48px] pb-8">
+        <h1 className="font-bold font-poppins text-[32px] md:text-[48px] pb-8">
           Meet our Inspirational team
         </h1>
 
-        <div className="flex justify-center gap-x-10 text-center font-roboto">
+        <div className="md:flex justify-center gap-x-10 text-center font-roboto">
           <div className="w-[302px] h-[366px] bg-white shadow-2xl flex flex-col justify-center items-center text-center">
             <Image
               src="/images/home.png"
