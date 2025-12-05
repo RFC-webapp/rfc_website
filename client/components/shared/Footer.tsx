@@ -10,7 +10,7 @@ export const Footer = () => {
     <footer className="w-full bg-[#222357] text-white">
       <div
         className="
-          container mx-auto flex flex-col md:flex-row md:flex-wrap gap-10 md:gap-6 justify-between px-4 md:px-0 py-16"
+          container mx-auto flex flex-col md:flex-row md:flex-wrap gap-10 md:gap-6 justify-between px-4 lg:px-0 py-16"
       >
         {/* 1 */}
         <div className="font-normal text-[16px] flex flex-col gap-3 md:w-[45%] lg:w-auto">

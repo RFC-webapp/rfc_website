@@ -1,14 +1,14 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
-interface BlogCardProps {
+interface ElibraryCardProps {
   image?: string;
   title: string;
   excerpt: string;
   date: string;
 }
 
-export function BlogCard({ image, title, excerpt, date }: BlogCardProps) {
+export function ElibraryCard({ image, title, excerpt, date }: ElibraryCardProps) {
   return (
     <div className="bg-white w-full aspect-420/451 rounded-xl shadow-sm border hover:shadow-md transition-all duration-300 overflow-hidden">
       {/* Blog Image */}
