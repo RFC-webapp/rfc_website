@@ -11,7 +11,7 @@ interface BookCardProps {
 
 const LibraryCard = ({ image, title, author, description }: BookCardProps) => {
   return (
-    <div className="border rounded-lg bg-white shadow-sm p-4">
+    <div className="border rounded-lg bg-white shadow-lg p-4">
       <div className="flex gap-4">
         {/* LEFT IMAGE */}
         <div className="w-[40%] h-32 relative rounded-md overflow-hidden">

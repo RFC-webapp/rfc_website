@@ -22,7 +22,7 @@ export default function Home() {
 
       {/* explore */}
       <div className="container mx-auto my-6">
-        <h1 className="font-normal text-[72px] underline">Explore</h1>
+        <h1 className="font-normal text-[52px]">Library</h1>
 
         {/* <Tabs defaultValue="library" className="w-full mt-6">
           <TabsList>

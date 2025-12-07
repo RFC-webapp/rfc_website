@@ -5,7 +5,6 @@ import Image from "next/image";
 
 export default function GivePage() {
   const [openIndex, setOpenIndex] = useState(null);
-
   const faqs = [
     "How are donations used?",
     "Can I give to support a specific project or initiative?",
@@ -20,6 +19,11 @@ export default function GivePage() {
 
   const handleToggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
+  };
+
+  const handleCopy = (text) => {
+    navigator.clipboard.writeText(text);
+    // alert("Account number copied!");
   };
 
   return (
@@ -78,32 +82,43 @@ export default function GivePage() {
                     <div className="bg-white p-4 rounded-md shadow-sm flex flex-col">
                       <div className="flex items-center justify-between">
                         <div className="text-xs text-gray-600 flex items-center gap-2">
-                          <img src="/logos/access-img.png" className="w-5 h-5" />
+                          <Image src="/logos/access-img.png" alt="Access Bank" 
+                          width={20} height={20} className="w-5 h-5" />
                           <span>Access Bank</span>
                         </div>
                       </div>
                       <div className="flex items-center justify-between mt-4 w-full">
                         <div className="text-xl font-semibold">0006822216</div>
 
-                        <img
-                          src="/logos/Button.png"
+                        <Image
+                          src="/logos/button.png"
+                          alt="copy"
+                          width={20}
+                          height={20}
                           className="w-5 h-5 cursor-pointer hover:opacity-70"
+                          onClick={() => handleCopy("0006822216")}
                         />
+
                       </div>
                     </div>
                     <div className="bg-white p-4 rounded-md shadow-sm flex flex-col">
                       <div className="flex items-center justify-between">
                         <div className="text-xs text-gray-600 flex items-center gap-2">
-                          <img src="/logos/access-img.png" className="w-5 h-5" />
+                          <Image src="/logos/access-img.png" alt="Access Bank" 
+                          width={20} height={20} className="w-5 h-5" />
                           <div>DOLLAR ACCOUNT</div>
                         </div>
                       </div>
                       <div className="flex items-center justify-between mt-4 w-full">
                         <div className="text-xl font-semibold">1448467336</div>
 
-                        <img
-                          src="/logos/Button.png"
+                        <Image
+                          src="/logos/button.png"
+                          alt="copy"
+                          width={20}
+                          height={20}
                           className="w-5 h-5 cursor-pointer hover:opacity-70"
+                          onClick={() => handleCopy("1448467336")}
                         />
                       </div>
                     </div>
@@ -111,16 +126,25 @@ export default function GivePage() {
                   <div className="bg-white p-4 rounded-md shadow-sm flex flex-col mt-4 w-1/2">
                     <div className="flex items-center justify-between">
                       <div className="text-xs text-gray-600 flex items-center gap-2">
-                        <img src="/logos/gtbank-img.png" className="w-5 h-5" />
+                        <Image src="/logos/gtbank-img.png"
+                          alt="Gtbank Bank"
+                          width={20}
+                          height={20}
+                          className="w-5 h-5"
+                        />
                         <span>Guaranty Trust Bank</span>
                       </div>
                     </div>
                     <div className="flex items-center justify-between mt-4 w-full">
                       <div className="text-xl font-semibold">0050990288</div>
 
-                      <img
-                        src="/logos/Button.png"
+                      <Image
+                        src="/logos/button.png"
+                        alt="copy"
+                        width={20}
+                        height={20}
                         className="w-5 h-5 cursor-pointer hover:opacity-70"
+                        onClick={() => handleCopy("0050990288")}
                       />
                     </div>
                   </div>
@@ -131,13 +155,21 @@ export default function GivePage() {
                       <div className="rounded-md p-3">
                         <div className="flex items-center justify-between mb-3">
                           <div className="flex items-center gap-2">
-                            <img src="/logos/cage-img.png" className="w-6 h-6" />
+                            <Image src="/logos/cage-img.png"
+                              alt="Cage-img"
+                              width={20}
+                              height={20}
+                              className="w-6 h-6" 
+                            />
                             <span className="text-sm font-semibold">
                               Pastors Offering
                             </span>
                           </div>
 
-                          <img
+                          <Image
+                            alt="Nigeria-flag logo"
+                            width={20}
+                            height={20}
                             src="/logos/nigeria-flag.png"
                             className="w-6 h-4 object-cover border-round"
                           />
@@ -145,15 +177,24 @@ export default function GivePage() {
 
                         <div className="bg-white rounded-md shadow-sm p-4">
                           <div className="text-sm text-gray-600 flex items-center gap-2">
-                            <img src="/logos/stanbic.png" className="w-5 h-5" /> Stanbic
+                            <Image src="/logos/stanbic.png"
+                              alt="stanbic Bank"
+                              width={20}
+                              height={20}
+                              className="w-5 h-5" 
+                            /> Stanbic Bank
                           </div>
 
                           <div className="flex items-center justify-between mt-4 w-full">
                             <div className="text-xl font-semibold">0011223344</div>
 
-                            <img
-                              src="/logos/Button.png"
+                            <Image
+                              src="/logos/button.png"
+                              alt="copy"
+                              width={20}
+                              height={20}
                               className="w-5 h-5 cursor-pointer hover:opacity-70"
+                              onClick={() => handleCopy("0011223344")}
                             />
                           </div>
                         </div>
@@ -162,27 +203,44 @@ export default function GivePage() {
                       <div className="rounded-md p-4">
                         <div className="flex items-center justify-between mb-3">
                           <div className="flex items-center gap-2">
-                            <img src="/logos/cage-img.png" className="w-6 h-6" />
+                            <Image src="/logos/cage-img.png"   
+                              alt="cage image"
+                              width={20}
+                              height={20}
+                              className="w-6 h-6" 
+                            />
                             <span className="text-sm font-semibold">Mission Account</span>
                           </div>
 
-                          <img
+                          <Image
+                            alt="Nigeria-flag logo"
+                            width={20}
+                            height={20}
                             src="/logos/nigeria-flag.png"
-                            className="w-6 h-4 object-cover border-rounded"
+                            className="w-6 h-4 object-cover border-round"
                           />
                         </div>
 
                         <div className="bg-white rounded-md shadow-sm p-4">
                           <div className="text-sm text-gray-600 flex items-center gap-2">
-                            <img src="/logos/gtbank-img.png" className="w-5 h-5" /> Guaranty Trust Bank
+                            <Image src="/logos/gtbank-img.png"   
+                              alt="Gtbank image"
+                              width={20}
+                              height={20}
+                              className="w-5 h-5" /> Guaranty Trust Bank
                           </div>
                           <div className="flex items-center justify-between mt-4 w-full">
                             <div className="text-xl font-semibold">0032709990</div>
 
-                            <img
-                              src="/logos/Button.png"
-                              className="w-5 h-5 cursor-pointer hover:opacity-70"
-                            />
+                            
+                          <Image
+                            src="/logos/button.png"
+                            alt="copy"
+                            width={20}
+                            height={20}
+                            className="w-5 h-5 cursor-pointer hover:opacity-70"
+                            onClick={() => handleCopy("0032709990")}
+                          />
                           </div>
                         </div>
                       </div>
@@ -193,7 +251,10 @@ export default function GivePage() {
                     <div className="p-4">
                       <div className="flex items-start gap-3">
                         <div className="bg-white rounded p-1 shadow-sm">
-                          <img
+                          <Image
+                            alt="pay-pal logo"
+                            width={20}
+                            height={20}
                             src="/logos/pay-pal.png"
                             className="w-6 h-auto object-contain"
                           />
