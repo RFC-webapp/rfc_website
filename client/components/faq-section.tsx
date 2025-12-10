@@ -17,9 +17,20 @@ interface FAQ {
 interface FAQSectionProps {
   title?: string;
   faqs: FAQ[];
+  linkHref?: URL | string;
+  linkLabel?: string;
+  sentence?: string;
+  showSentence?: boolean;
 }
 
-export default function FAQSection({ title, faqs }: FAQSectionProps) {
+export default function FAQSection({
+  title,
+  faqs,
+  linkHref,
+  sentence,
+  linkLabel,
+  showSentence,
+}: FAQSectionProps) {
   return (
     <section className="w-full max-w-4xl px-2 lg:px-0 mx-auto py-12">
       {title && (
@@ -56,11 +67,13 @@ export default function FAQSection({ title, faqs }: FAQSectionProps) {
         ))}
       </Accordion>
 
-      <div className="mt-10 text-[20px] text-center  font-semibold text-[#000000]">
-        Have questions about giving?{" "}
-        <Link href="/give" className="">
-          View our Giving FAQs →
-        </Link>
+      <div className="mt-10 text-[20px] text-center font-semibold text-[#000000]">
+        {showSentence && sentence && <>{sentence} </>}
+        {linkHref && linkLabel && (
+          <Link href={linkHref} className="hover-underline">
+            {linkLabel} →
+          </Link>
+        )}
       </div>
     </section>
   );
