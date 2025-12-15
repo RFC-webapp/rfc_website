@@ -2,20 +2,45 @@
 import React, { useState } from "react";
 import { HiOutlineClipboard, HiOutlineChevronRight } from "react-icons/hi";
 import Image from "next/image";
+import Link from "next/link";
+
 
 export default function GivePage() {
   const [openIndex, setOpenIndex] = useState(null);
   const faqs = [
-    "How are donations used?",
-    "Can I give to support a specific project or initiative?",
-    "Are there other ways to give besides online?",
-    "Is my payment information and privacy secured?",
-    "How do I set up recurring giving?",
-    "What is pastor's offering?",
+    {
+      question: "How are donations used?",
+      answer:
+        "Your gifts support our ministries, outreach, missions, and the upkeep of our church. We use all donations responsibly, and financial details are available if you’d like to see them. Thank you for helping us make a meaningful impact in our community and beyond.",
+    },
+    {
+      question: "Can I give to support a specific project or initiative?",
+      answer:
+        "Yes. You can designate your giving to specific projects, outreaches, or church initiatives during the giving process.",
+    },
+    {
+      question: "Are there other ways to give besides online?",
+      answer:
+        "Yes. You can give during in-person services, through bank transfers, USSD, or other approved giving channels.",
+    },
+    {
+      question: "Is my payment information and privacy secured?",
+      answer:
+        "Absolutely. All transactions are processed through secure, encrypted payment systems to protect your information.",
+    },
+    {
+      question: "How do I set up recurring giving?",
+      answer:
+        "Simply select the recurring option when making your donation online and choose your preferred frequency.",
+    },
+    {
+      question: "What is pastor's offering?",
+      answer:
+        "Pastor's Offering is a voluntary gift given directly to bless our pastors in appreciation of their spiritual labor. “Those who are taught the word should share all good things with their teacher.” Galatians 6:6",
+    },
   ];
 
-  const content =
-    "Your gifts support our ministries, outreach, missions, and the upkeep of our church. We use all donations responsibly, and financial details are available if you'd like to see them. Thank you for helping us make a meaningful impact in our community and beyond.";
+
 
   const handleToggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -23,7 +48,6 @@ export default function GivePage() {
 
   const handleCopy = (text) => {
     navigator.clipboard.writeText(text);
-    // alert("Account number copied!");
   };
 
   return (
@@ -341,7 +365,7 @@ export default function GivePage() {
             Giving FAQs
           </h2>
           <div className="space-y-8">
-            {faqs.map((question, index) => (
+            {faqs.map((faqs, index) => (
               <div key={index}>
                 <div
                   className="flex items-center justify-between cursor-pointer"
@@ -352,16 +376,16 @@ export default function GivePage() {
                       {String(index + 1).padStart(2, "0")}.
                     </span>
 
-                    <span className="text-lg text-gray-700">{question}</span>
+                    <span className="text-lg text-gray-700">{faqs.question}</span>
                   </div>
                   <span className="text-3xl text-[#2A1870] font-light">
-                    {openIndex === index ? "−" : "+"}
+                    {openIndex === index ? "-" : "+"}
                   </span>
                 </div>
 
                 {openIndex === index && (
                   <p className="mt-4 text-gray-600 text-sm md:text-base leading-relaxed pl-16">
-                    {content}
+                    {faqs.answer}
                   </p>
                 )}
 
@@ -370,9 +394,13 @@ export default function GivePage() {
             ))}
           </div>
           <div className="mt-10">
-            <a href="#" className="text-xl font-semibold text-[#161750] hover:underline">
+            <Link
+              href="/faqs"
+              className="text-xl font-semibold text-[#161750] hover:underline"
+            >
               Go To General FAQs →
-            </a>
+            </Link>
+
           </div>
         </div>
       </section>
