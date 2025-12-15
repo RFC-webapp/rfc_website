@@ -23,7 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} antialiased`}>
+      <body
+        suppressHydrationWarning
+        className={`${poppins.variable} antialiased`}
+      >
         <NavBar />
         {children}
         <Toaster />

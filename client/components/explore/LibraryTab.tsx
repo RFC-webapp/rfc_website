@@ -1,4 +1,5 @@
-import LibraryCard from "./LibraryCard";
+import MediaCard from "@/components/media/MediaCard";
+import { DownloadIcon } from "@/public/icons";
 
 const books = [
   {
@@ -33,7 +34,7 @@ const books = [
 const LibraryTab = () => {
   return (
     <div className="">
-      <div className="flex justify-between items-center pb-4">
+      <div className="flex justify-between items-center pb-4 px-2 md:px-0">
         <h3 className="font-semibold text-[14px] text-[#222357]">
           Recommended Books
         </h3>
@@ -43,15 +44,22 @@ const LibraryTab = () => {
         </h3>
       </div>
 
-      {/* GRID — 2 x 2 */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {books.map((book, index) => (
-          <LibraryCard
+          <MediaCard
             key={index}
             image={book.image}
             title={book.title}
             author={book.author}
             description={book.description}
+            buttons={[
+              {
+                label: "Download",
+                icon: <DownloadIcon />,
+                variant: "ghost",
+                className: "bg-[#222357] text-white",
+              },
+            ]}
           />
         ))}
       </div>
