@@ -1,80 +1,78 @@
 "use client";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import Link from "next/link";
+import { FC, useState } from "react";
 
-interface FAQ {
-  id: string;
+export type FAQ = {
+  id?: string;
   question: string;
   answer: string;
-}
+};
 
 interface FAQSectionProps {
-  title?: string;
+  title: string;
   faqs: FAQ[];
-  linkHref?: URL | string;
-  linkLabel?: string;
   sentence?: string;
-  showSentence?: boolean;
+  linkHref: string;
+  linkLabel: string;
+  showSentence: boolean;
 }
 
-export default function FAQSection({
+const FAQSection: FC<FAQSectionProps> = ({
   title,
   faqs,
-  linkHref,
   sentence,
+  linkHref,
   linkLabel,
   showSentence,
-}: FAQSectionProps) {
+}) => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
-    <section className="w-full max-w-4xl px-2 lg:px-0 mx-auto py-12">
-      {title && (
-        <h2 className="text-3xl font-extrabold text-[#161750] mb-8">{title}</h2>
-      )}
+    <div className="flex justify-center py-12 px-4">
+      <div className="w-full max-w-3xl">
+        {/* Title */}
+        <h2 className="text-3xl font-bold mb-8" style={{ color: "#161750" }}>
+          {title}
+        </h2>
 
-      <Accordion type="single" collapsible className="w-full">
-        {faqs.map((faq, index) => (
-          <AccordionItem
-            key={faq.id}
-            value={faq.id}
-            className="border-b border-[#161750] py-4"
-          >
-            <AccordionTrigger
-              className="flex w-full justify-between text-left text-[18px] font-semibold text-[#1A2254] 
-              no-underline hover:no-underline focus:no-underline 
-              decoration-transparent hover:decoration-transparent focus:decoration-transparent"
-            >
-              <span className="flex items-center gap-4">
-                <span className="text-[#C3C3D1] font-bold text-3xl">
-                  {String(index + 1).padStart(2, "0")}.
+        {/* FAQ Accordion */}
+        <div className="space-y-6">
+          {faqs.map((faq, idx) => (
+            <div key={faq.id || idx} className="border-b border-gray-200 pb-5">
+              <button
+                onClick={() => toggleFAQ(idx)}
+                className="w-full flex justify-between items-start gap-4 text-left font-medium text-[#394452] text-lg hover:text-gray-900"
+              >
+                <span className="flex items-center gap-3">
+                  <span className="font-bold text-3xl text-[#394452]">
+                    {String(idx + 1).padStart(2, "0")}.
+                  </span>
+                  <span>{faq.question}</span>
                 </span>
+                <span className="text-2xl font-bold">
+                  {openIndex === idx ? "−" : "+"}
+                </span>
+              </button>
+              {openIndex === idx && (
+                <p className="mt-2 text-gray-700 pl-10">{faq.answer}</p>
+              )}
+            </div>
+          ))}
+        </div>
 
-                <div className="text-[#394452] font-poppins font-regular">
-                  {faq.question}
-                </div>
-              </span>
-            </AccordionTrigger>
-
-            <AccordionContent className="pl-16 pr-4 font-poppins font-extralight text-[#000000] text-[20px]">
-              {faq.answer}
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
-
-      <div className="mt-10 text-[20px] text-center font-semibold text-[#000000]">
-        {showSentence && sentence && <>{sentence} </>}
-        {linkHref && linkLabel && (
-          <Link href={linkHref} className="hover-underline">
+        <div className="mt-6 flex items-center gap-2 text-[#161750] text-lg md:text-xl">
+          {sentence && <span>{sentence}</span>}
+          <a href={linkHref} className="text-[#161750] font-semibold hover:text-[#161750]">
             {linkLabel} →
-          </Link>
-        )}
+          </a>
+        </div>
       </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default FAQSection;

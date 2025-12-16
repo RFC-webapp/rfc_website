@@ -78,7 +78,14 @@ export default function Page() {
 
   return (
     <div className="min-h-screen py-12">
-      <FAQSection title="General FAQs" faqs={faqs} />
+      <FAQSection
+        title="General FAQs"
+        faqs={faqs}
+        sentence="Have questions about giving?"
+        linkHref="/give"
+        linkLabel="View our Giving FAQs"
+        showSentence={true}
+      />
     </div>
   );
 }
