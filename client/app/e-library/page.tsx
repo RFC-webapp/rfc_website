@@ -1,4 +1,5 @@
 import MediaCard from "@/components/media/MediaCard";
+import PaginatedContent from "@/components/media/PaginationContent";
 import Selection from "@/components/media/Selection";
 import TitleTag from "@/components/media/TitleTag";
 import {
@@ -79,12 +80,12 @@ const books = [
 export default function page() {
   return (
     <div className="bg-[#FAFAFA]">
-      <div className="container mx-auto py-24 ">
-        <div className="px-2 md:px-0">
+      <div className="container mx-auto pt-24 pb-12">
+        <div className="px-2 md:px-0 pt-2">
           <TitleTag text="E-Library" />
         </div>
 
-        <div className="flex flex-col md:flex-row md:justify-between md:items-center my-4 gap-2 md:gap-0">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4 gap-2 md:gap-0">
           <div className="flex flex-wrap gap-4 py-4 md:py-8 px-2 md:px-0">
             <Selection text="All books" />
             <Selection icon={<HealingIcon />} text="Healing" />
@@ -93,7 +94,7 @@ export default function page() {
             <Selection icon={<MarriageIcon />} text="Marriage & Relationship" />
           </div>
 
-          <div className="relative w-fit md:w-[255px] mx-auto">
+          <div className="relative w-fit md:w-[255px]">
             <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#667085]">
               <SearchIcon />
             </div>
@@ -126,6 +127,8 @@ export default function page() {
           ))}
         </div>
       </div>
+
+      <PaginatedContent />
     </div>
   );
 }

@@ -67,7 +67,7 @@ const MediaCard = ({
               {/* SHARE ICON */}
               {showShare && (
                 // <div className="">
-                  <ShareIcon />
+                <ShareIcon />
                 // </div>
               )}
             </div>

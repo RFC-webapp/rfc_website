@@ -8,6 +8,7 @@ import {
   SearchIcon,
   ServiceIcon,
 } from "@/public/icons";
+import PaginatedContent from "@/components/media/PaginationContent";
 
 const books = [
   {
@@ -78,16 +79,14 @@ const books = [
 export default function page() {
   return (
     <div className="bg-[#FAFAFA]">
-      <div className="container mx-auto py-24 ">
-        <div>
-          <Program />
-        </div>
+      <div className="container mx-auto pt-24 pb-12">
+        <Program />
 
-        <div className="px-2 md:px-0">
+        <div className="px-2 md:px-0 pt-2">
           <TitleTag text="Sermons" />
         </div>
 
-        <div className="flex flex-col md:flex-row md:justify-between md:items-center my-4 gap-2 md:gap-0">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4 gap-2 md:gap-0">
           <div className="flex flex-wrap gap-4 py-4 md:py-8 px-2 md:px-0">
             <Selection text="All media" />
             <Selection icon={<ServiceIcon />} text="1st Service" />
@@ -136,6 +135,8 @@ export default function page() {
           ))}
         </div>
       </div>
+
+      <PaginatedContent />
     </div>
   );
 }
