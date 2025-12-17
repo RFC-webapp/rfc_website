@@ -1,57 +1,47 @@
-"use client";
-
 import Image from "next/image";
 import FAQSection from "@/components/faq-section";
-import { toast } from "sonner";
 import BankCard from "@/components/BankCard";
 
-// Type definition for FAQ
-type FAQ = {
-  question: string;
-  answer: string;
-};
+const faqs = [
+  {
+    id: "faq-1",
+    question: "How are donations used?",
+    answer:
+      "Your gifts support our ministries, outreach, missions, and the upkeep of our church. We use all donations responsibly, and financial details are available if you’d like to see them. Thank you for helping us make a meaningful impact in our community and beyond.",
+  },
+  {
+    id: "faq-2",
+    question: "Can I give to support a specific project or initiative?",
+    answer:
+      "Yes! You can designate your contribution to a specific project, outreach, or ministry.",
+  },
+  {
+    id: "faq-3",
+    question: "Are there other ways to give besides online?",
+    answer:
+      "Yes. You can give during in-person services, through bank transfers, USSD, or other approved giving channels.",
+  },
+  {
+    id: "faq-4",
+    question: "Is my payment information and privacy secured?",
+    answer:
+      "Absolutely. All transactions are processed through secure, encrypted payment systems to protect your information.",
+  },
+  {
+    id: "faq-5",
+    question: "How do I set up recuring giving?",
+    answer:
+      "Simply select the recurring option when making your donation online and choose your preferred frequency..",
+  },
+  {
+    id: "faq-6",
+    question: "What is pastor’s offering?",
+    answer:
+      "Pastor’s Offering is a voluntary gift given directly to bless our pastors in appreciation of their spiritual labor. “Those who are taught the word should share all good things with their teacher.” — Galatians 6:6",
+  },
+];
 
-export default function GivePage() {
-  // FAQ array with proper typing
-  const faqs: FAQ[] = [
-    {
-      question: "How are donations used?",
-      answer:
-        "Your gifts support our ministries, outreach, missions, and the upkeep of our church. We use all donations responsibly, and financial details are available if you’d like to see them. Thank you for helping us make a meaningful impact in our community and beyond.",
-    },
-    {
-      question: "Can I give to support a specific project or initiative?",
-      answer:
-        "Yes. You can designate your giving to specific projects, outreaches, or church initiatives during the giving process.",
-    },
-    {
-      question: "Are there other ways to give besides online?",
-      answer:
-        "Yes. You can give during in-person services, through bank transfers, USSD, or other approved giving channels.",
-    },
-    {
-      question: "Is my payment information and privacy secured?",
-      answer:
-        "Absolutely. All transactions are processed through secure, encrypted payment systems to protect your information.",
-    },
-    {
-      question: "How do I set up recurring giving?",
-      answer:
-        "Simply select the recurring option when making your donation online and choose your preferred frequency.",
-    },
-    {
-      question: "What is pastor's offering?",
-      answer:
-        "Pastor's Offering is a voluntary gift given directly to bless our pastors in appreciation of their spiritual labor. “Those who are taught the word should share all good things with their teacher.” Galatians 6:6",
-    },
-  ];
-
-  // Copy to clipboard handler
-  const handleCopy = (text: string) => {
-    navigator.clipboard.writeText(text);
-    toast.success("Account number copied!");
-  };
-
+export default function page() {
   return (
     <div className="bg-white mt-20">
       {/* Header Section */}
@@ -96,27 +86,32 @@ export default function GivePage() {
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
-          <BankCard
-            bankLogo="/logos/access-img.png"
-            bankName="Access Bank"
-            accountNumber="0006822216"
-            copyIcon="/logos/button.png"
-            onCopy={handleCopy}
-          />
-          <BankCard
-            bankLogo="/logos/access-img.png"
-            bankName="Dollar Account"
-            accountNumber="1448467336"
-            copyIcon="/logos/button.png"
-            onCopy={handleCopy}
-          />
-          <BankCard
-            bankLogo="/logos/gtbank-img.png"
-            bankName="GTBank"
-            accountNumber="0050990288"
-            copyIcon="/logos/button.png"
-            onCopy={handleCopy}
-          />
+          <div className="w-full">
+            <BankCard
+              bankLogo="/logos/access-img.png"
+              bankName="Access Bank"
+              accountNumber="0006822216"
+              copyIcon="/logos/button.png"
+            />
+          </div>
+
+          <div className="w-full">
+            <BankCard
+              bankLogo="/logos/access-img.png"
+              bankName="Dollar Account"
+              accountNumber="1448467336"
+              copyIcon="/logos/button.png"
+            />
+          </div>
+
+          <div className="w-full">
+            <BankCard
+              bankLogo="/logos/gtbank-img.png"
+              bankName="GTBank"
+              accountNumber="0050990288"
+              copyIcon="/logos/button.png"
+            />
+          </div>
         </div>
       </section>
 
@@ -149,7 +144,6 @@ export default function GivePage() {
               bankName="Access Bank"
               accountNumber="0006822216"
               copyIcon="/logos/button.png"
-              onCopy={handleCopy}
             />
           </div>
 
@@ -179,7 +173,6 @@ export default function GivePage() {
               bankName="Access Bank"
               accountNumber="0006822216"
               copyIcon="/logos/button.png"
-              onCopy={handleCopy}
             />
           </div>
         </div>
@@ -207,7 +200,7 @@ export default function GivePage() {
             </div>
           </div>
 
-          <div className="bg-[#2A1870] text-white py-3 px-6 text-center font-small hover:bg-blue-900 cursor-pointer tracking-wide w-full md:w-auto mx-auto md:mx-0 rounded-md">
+          <div className="mt-auto mb-6 md:mb-12 bg-[#2A1870] text-white py-3 px-6 text-center font-small hover:bg-blue-900 cursor-pointer tracking-wide w-full md:w-auto mx-auto md:mx-0">
             GIVE NOW →
           </div>
         </div>
