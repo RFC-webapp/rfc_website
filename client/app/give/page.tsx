@@ -23,25 +23,25 @@ export default function GivePage() {
       id: "faq-3",
       question: "Are there other ways to give besides online?",
       answer:
-        "Absolutely — you can give in person, via bank transfer, or through our mobile giving channels.",
+        "Yes. You can give during in-person services, through bank transfers, USSD, or other approved giving channels.",
     },
     {
       id: "faq-4",
-      question: "Are there other ways to give besides online?",
+      question: "Is my payment information and privacy secured?",
       answer:
-        "Absolutely — you can give in person, via bank transfer, or through our mobile giving channels.",
+        "Absolutely. All transactions are processed through secure, encrypted payment systems to protect your information.",
     },
     {
       id: "faq-5",
-      question: "Are there other ways to give besides online?",
+      question: "How do I set up recuring giving?",
       answer:
-        "Absolutely — you can give in person, via bank transfer, or through our mobile giving channels.",
+        "Simply select the recurring option when making your donation online and choose your preferred frequency..",
     },
     {
       id: "faq-6",
-      question: "Are there other ways to give besides online?",
+      question: "What is pastor’s offering?",
       answer:
-        "Absolutely — you can give in person, via bank transfer, or through our mobile giving channels.",
+        "Pastor’s Offering is a voluntary gift given directly to bless our pastors in appreciation of their spiritual labor. “Those who are taught the word should share all good things with their teacher.” — Galatians 6:6",
     },
   ];
 
