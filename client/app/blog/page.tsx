@@ -158,10 +158,10 @@ const page = () => {
 
     <div className="flex my-2 justify-between items-center w-full mb-10 text-[#667085]">
        
-       <span>
+       <span className='cursor-pointer'>
         ← Previous
        </span>
-       <div className="hidden md:flex gap-2">
+       <div className="hidden md:flex gap-2 cursor-pointer">
         <span className='p-1 hover:[#F9F5FF]'>
           1
         </span>
@@ -184,7 +184,7 @@ const page = () => {
           10
         </span>
        </div>
-       <span>
+       <span className='cursor-pointer'>
          → Next
        </span>
     </div>
