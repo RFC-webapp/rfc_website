@@ -4,9 +4,15 @@ import { cardData } from './Carddata'
 const page = () => {
   return (
     <div>
-      <div className="bg-[url('/images/Header.png')]  bg-center h-64 flex items-center justify-center">
 
+      <div className="pt-3 pb-6 bg-[#22235766] mt-[3.4rem]">
+          <div className="bg-[url('/images/Rheader.jpg')] w-2/3 mx-auto mt-4 bg-center opacity-30   rounded-md z-10">
+            <span className='text-white text-[65px] text-center p-4 font-bold flex justify-center items-center z-50'>
+              RFC BLOG
+            </span>
       </div>
+      </div>
+      
      <div className="w-[85%] mx-auto">
          <h1 className="text-xl font-bold my-8">Recent blog posts</h1>
       <div className="flex flex-col md:flex-row gap-3">
