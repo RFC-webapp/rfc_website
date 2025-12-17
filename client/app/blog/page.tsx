@@ -134,7 +134,7 @@ const page = () => {
         All blog posts
       </h1>
 
-       <div className="flex items-center gap-5 flex-wrap my-3">
+       <div className="flex items-center gap-5 flex-wrap my-3 border-b-[0.5px] pb-8">
       {cardData.map((card, index) => (
         <div key={index} className='rounded-md shadow-sm p-2'>
           <div className='w-full max-w-[350px]'>
@@ -154,6 +154,39 @@ const page = () => {
           </a>
         </div>
       ))}
+    </div>
+
+    <div className="flex my-2 justify-between items-center w-full mb-10 text-[#667085]">
+       
+       <span>
+        ← Previous
+       </span>
+       <div className="hidden md:flex">
+        <span className='p-1'>
+          1
+        </span>
+        <span className='p-1'>
+          2
+        </span>
+        <span className='p-1'>
+          3
+        </span>
+        <span className='p-1'>
+          ...
+        </span>
+        <span className='p-1'>
+          8
+        </span>
+        <span className='p-1'>
+          9
+        </span>
+        <span className='p-1'>
+          10
+        </span>
+       </div>
+       <span>
+         → Next
+       </span>
     </div>
      </div>
     </div>
