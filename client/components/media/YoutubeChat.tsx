@@ -43,6 +43,10 @@ export default function GroupChat() {
   }, []);
 
   return (
-    <div id="talkjs-container" style={{ width: "400px", height: "600px" }} />
+    <div
+      id="talkjs-container"
+      className="w-full h-[400px] md:h-[600px] rounded-lg shadow-md"
+      style={{ width: "400px", height: "600px" }}
+    />
   );
 }
