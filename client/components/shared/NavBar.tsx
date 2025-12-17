@@ -6,6 +6,7 @@ import Image from "next/image";
 import { MdLogin } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { usePathname } from "next/navigation";
+import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 
 export const NavBar = () => {
   const pathname = usePathname();
@@ -18,7 +19,7 @@ export const NavBar = () => {
     <>
       {/* Navbar */}
       <nav className="fixed top-0 left-0 w-full bg-white text-[#2A1870] py-3 z-50 shadow">
-        <div className="w-full flex mx-auto container justify-between items-center px-2 lg:px-0 font-medium text-[16px]">
+        <div className="container mx-auto flex justify-between items-center px-2 lg:px-0 font-medium text-[16px]">
           {/* Logo */}
           <div>
             <Image src="/church-logo.png" alt="logo" width={40} height={40} />
@@ -32,7 +33,6 @@ export const NavBar = () => {
             >
               HOME
             </Link>
-
             <Link
               href="/about"
               className={
@@ -41,7 +41,6 @@ export const NavBar = () => {
             >
               ABOUT
             </Link>
-
             <Link
               href="/give"
               className={isActive("/give") ? "text-blue-700 font-semibold" : ""}
@@ -53,11 +52,7 @@ export const NavBar = () => {
             <div className="relative group">
               <button
                 className={`cursor-pointer ${
-                  pathname.startsWith("/media") ||
-                  pathname.startsWith("/e-library") ||
-                  pathname.startsWith("/sermons") ||
-                  pathname.startsWith("/live-stream") ||
-                  pathname.startsWith("/blog")
+                  pathname.startsWith("/media")
                     ? "text-blue-700 font-semibold"
                     : ""
                 }`}
@@ -67,39 +62,42 @@ export const NavBar = () => {
 
               <div className="absolute top-full left-0 bg-white shadow-lg rounded-md py-3 px-4 flex flex-col gap-2 min-w-[180px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <Link
-                  href="/e-library"
-                  className={`hover:text-blue-700 ${
-                    isActive("/e-library") ? "text-blue-700 font-semibold" : ""
-                  }`}
+                  href="/media/e-library"
+                  className={
+                    isActive("/media/e-library")
+                      ? "text-blue-700 font-semibold"
+                      : "hover:text-blue-700"
+                  }
                 >
                   E-Library
                 </Link>
-
                 <Link
-                  href="/sermons"
-                  className={`hover:text-blue-700 ${
-                    isActive("/sermons") ? "text-blue-700 font-semibold" : ""
-                  }`}
+                  href="/media/sermons"
+                  className={
+                    isActive("/media/sermons")
+                      ? "text-blue-700 font-semibold"
+                      : "hover:text-blue-700"
+                  }
                 >
                   Sermons
                 </Link>
-
                 <Link
-                  href="/live-stream"
-                  className={`hover:text-blue-700 ${
-                    isActive("/live-stream")
+                  href="/media/livestream"
+                  className={
+                    isActive("/media/livestream")
                       ? "text-blue-700 font-semibold"
-                      : ""
-                  }`}
+                      : "hover:text-blue-700"
+                  }
                 >
                   Live Stream
                 </Link>
-
                 <Link
-                  href="/blog"
-                  className={`hover:text-blue-700 ${
-                    isActive("/blog") ? "text-blue-700 font-semibold" : ""
-                  }`}
+                  href="/media/blog"
+                  className={
+                    isActive("/media/blog")
+                      ? "text-blue-700 font-semibold"
+                      : "hover:text-blue-700"
+                  }
                 >
                   Blog
                 </Link>
@@ -166,14 +164,12 @@ export const NavBar = () => {
             >
               HOME
             </Link>
-
             <Link
               href="/about"
               className={isActive("/about") ? "text-blue-700 font-bold" : ""}
             >
               ABOUT
             </Link>
-
             <Link
               href="/give"
               className={isActive("/give") ? "text-blue-700 font-bold" : ""}
@@ -185,48 +181,56 @@ export const NavBar = () => {
             <div>
               <button
                 onClick={() => setMediaOpen(!mediaOpen)}
-                className={`w-full text-left ${
-                  pathname.startsWith("/e-library") ||
-                  pathname.startsWith("/sermons") ||
-                  pathname.startsWith("/live-stream") ||
-                  pathname.startsWith("/blog")
-                    ? "text-blue-700 font-bold"
-                    : ""
+                className={`w-full flex items-center justify-between ${
+                  pathname.startsWith("/media") ? "text-blue-700 font-bold" : ""
                 }`}
               >
-                MEDIA {mediaOpen ? "▴" : "▾"}
+                <span>MEDIA</span>
+                <span className="flex items-center">
+                  {mediaOpen ? (
+                    <FaChevronUp size={14} />
+                  ) : (
+                    <FaChevronDown size={14} />
+                  )}
+                </span>
               </button>
 
               {mediaOpen && (
                 <div className="flex flex-col gap-2 mt-2 ml-3 text-[15px]">
                   <Link
-                    href="/e-library"
+                    href="/media/e-library"
                     className={
-                      isActive("/e-library") ? "text-blue-700 font-bold" : ""
+                      isActive("/media/e-library")
+                        ? "text-blue-700 font-bold"
+                        : ""
                     }
                   >
                     E-Library
                   </Link>
                   <Link
-                    href="/sermons"
+                    href="/media/sermons"
                     className={
-                      isActive("/sermons") ? "text-blue-700 font-bold" : ""
+                      isActive("/media/sermons")
+                        ? "text-blue-700 font-bold"
+                        : ""
                     }
                   >
                     Sermons
                   </Link>
                   <Link
-                    href="/live-stream"
+                    href="/media/livestream"
                     className={
-                      isActive("/live-stream") ? "text-blue-700 font-bold" : ""
+                      isActive("/media/livestream")
+                        ? "text-blue-700 font-bold"
+                        : ""
                     }
                   >
                     Live Stream
                   </Link>
                   <Link
-                    href="/blog"
+                    href="/media/blog"
                     className={
-                      isActive("/blog") ? "text-blue-700 font-bold" : ""
+                      isActive("/media/blog") ? "text-blue-700 font-bold" : ""
                     }
                   >
                     Blog

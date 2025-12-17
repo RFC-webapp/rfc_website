@@ -1,5 +1,5 @@
 import React from 'react'
-import { cardData } from './Carddata'
+import { cardData } from '../../../components/media/BlogData'
 
 const page = () => {
   return (

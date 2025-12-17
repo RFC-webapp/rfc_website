@@ -1,4 +1,3 @@
-import React from "react";
 import { HiMail, HiLocationMarker, HiPhone } from "react-icons/hi";
 
 const page = () => {
