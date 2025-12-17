@@ -219,7 +219,7 @@ export default function GivePage() {
             </div>
           </div>
 
-          <div className="bg-[#2A1870] text-white py-3 px-6 text-center font-small hover:bg-blue-900 cursor-pointer tracking-wide w-full md:w-auto mx-auto md:mx-0 rounded-md">
+          <div className="mt-auto mb-6 md:mb-12 bg-[#2A1870] text-white py-3 px-6 text-center font-small hover:bg-blue-900 cursor-pointer tracking-wide w-full md:w-auto mx-auto md:mx-0">
             GIVE NOW →
           </div>
         </div>
