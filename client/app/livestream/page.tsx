@@ -37,7 +37,7 @@ export default function page() {
           </div>
         </div>
 
-        <section className="block md:flex justify-between gap-4">
+        <section className="flex flex-col md:flex-row justify-between gap-4">
           <VideoCard
             title="The Blessings of Abraham"
             videoId="BUUFI1p2Svs"
