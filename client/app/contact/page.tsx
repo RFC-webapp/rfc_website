@@ -1,4 +1,3 @@
-import React from "react";
 import { HiMail, HiLocationMarker, HiPhone } from "react-icons/hi";
 
 const page = () => {
@@ -80,7 +79,12 @@ const page = () => {
           <p className="text-gray-700 mb-1">
             Our friendly team is here to talk
           </p>
-          <p className="text-blue-900 font-bold">test@gmail.com</p>
+          <a
+            href="mailto:test@gmail.com"
+            className="text-blue-900 font-bold underline hover:text-blue-700"
+          >
+            test@gmail.com
+          </a>
         </div>
 
         <div className="flex flex-col items-center">
