@@ -161,26 +161,26 @@ const page = () => {
        <span>
         ← Previous
        </span>
-       <div className="hidden md:flex">
-        <span className='p-1'>
+       <div className="hidden md:flex gap-2">
+        <span className='p-1 hover:[#F9F5FF]'>
           1
         </span>
-        <span className='p-1'>
+        <span className='p-1 hover:[#F9F5FF]'>
           2
         </span>
-        <span className='p-1'>
+        <span className='p-1 hover:[#F9F5FF]'>
           3
         </span>
-        <span className='p-1'>
+        <span className='p-1 hover:[#F9F5FF]'>
           ...
         </span>
-        <span className='p-1'>
+        <span className='p-1 hover:[#F9F5FF]'>
           8
         </span>
-        <span className='p-1'>
+        <span className='p-1 hover:[#F9F5FF]'>
           9
         </span>
-        <span className='p-1'>
+        <span className='p-1 hover:[#F9F5FF]'>
           10
         </span>
        </div>
