@@ -4,7 +4,7 @@ import Selection from "@/components/media/Selection";
 import { SearchIcon } from "lucide-react";
 import { ServiceIcon } from "@/public/icons";
 import VideoCard from "@/components/media/Youtube";
-import Chat from "@/components/media/YoutubeChat";
+import GroupChat from "@/components/media/YoutubeChat";
 // import SermonExcerpt from "@/components/media/SermonExcerpt";
 
 export default function page() {
@@ -44,7 +44,7 @@ export default function page() {
             teacher="Rev. Tunde Amosun"
           />
 
-          <Chat />
+          <GroupChat />
         </section>
 
         {/* <SermonExcerpt /> */}
