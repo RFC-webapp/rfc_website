@@ -1,55 +1,47 @@
-"use client";
-
 import Image from "next/image";
 import FAQSection from "@/components/faq-section";
-import { toast } from "sonner";
 import BankCard from "@/components/BankCard";
 
-export default function GivePage() {
-  const faqs = [
-    {
-      id: "faq-1",
-      question: "How are donations used?",
-      answer:
-        "Your gifts support our ministries, outreach, missions, and the upkeep of our church. We use all donations responsibly, and financial details are available if you’d like to see them. Thank you for helping us make a meaningful impact in our community and beyond.",
-    },
-    {
-      id: "faq-2",
-      question: "Can I give to support a specific project or initiative?",
-      answer:
-        "Yes! You can designate your contribution to a specific project, outreach, or ministry.",
-    },
-    {
-      id: "faq-3",
-      question: "Are there other ways to give besides online?",
-      answer:
-        "Absolutely — you can give in person, via bank transfer, or through our mobile giving channels.",
-    },
-    {
-      id: "faq-4",
-      question: "Are there other ways to give besides online?",
-      answer:
-        "Absolutely — you can give in person, via bank transfer, or through our mobile giving channels.",
-    },
-    {
-      id: "faq-5",
-      question: "Are there other ways to give besides online?",
-      answer:
-        "Absolutely — you can give in person, via bank transfer, or through our mobile giving channels.",
-    },
-    {
-      id: "faq-6",
-      question: "Are there other ways to give besides online?",
-      answer:
-        "Absolutely — you can give in person, via bank transfer, or through our mobile giving channels.",
-    },
-  ];
+const faqs = [
+  {
+    id: "faq-1",
+    question: "How are donations used?",
+    answer:
+      "Your gifts support our ministries, outreach, missions, and the upkeep of our church. We use all donations responsibly, and financial details are available if you’d like to see them. Thank you for helping us make a meaningful impact in our community and beyond.",
+  },
+  {
+    id: "faq-2",
+    question: "Can I give to support a specific project or initiative?",
+    answer:
+      "Yes! You can designate your contribution to a specific project, outreach, or ministry.",
+  },
+  {
+    id: "faq-3",
+    question: "Are there other ways to give besides online?",
+    answer:
+      "Yes. You can give during in-person services, through bank transfers, USSD, or other approved giving channels.",
+  },
+  {
+    id: "faq-4",
+    question: "Is my payment information and privacy secured?",
+    answer:
+      "Absolutely. All transactions are processed through secure, encrypted payment systems to protect your information.",
+  },
+  {
+    id: "faq-5",
+    question: "How do I set up recuring giving?",
+    answer:
+      "Simply select the recurring option when making your donation online and choose your preferred frequency..",
+  },
+  {
+    id: "faq-6",
+    question: "What is pastor’s offering?",
+    answer:
+      "Pastor’s Offering is a voluntary gift given directly to bless our pastors in appreciation of their spiritual labor. “Those who are taught the word should share all good things with their teacher.” — Galatians 6:6",
+  },
+];
 
-  const handleCopy = (text: string) => {
-    navigator.clipboard.writeText(text);
-    toast.success("Account number copied!");
-  };
-
+export default function page() {
   return (
     <div className=" bg-white mt-20">
       <section className="container mx-auto bg-gray-100 w-fit rounded-full p-2 flex justify-center gap-x-4 items-center md:text-left text-center">
@@ -102,7 +94,6 @@ export default function GivePage() {
               bankName="Access Bank"
               accountNumber="0006822216"
               copyIcon="/logos/button.png"
-              onCopy={handleCopy}
             />
           </div>
 
@@ -112,7 +103,6 @@ export default function GivePage() {
               bankName="Dollar Account"
               accountNumber="1448467336"
               copyIcon="/logos/button.png"
-              onCopy={handleCopy}
             />
           </div>
 
@@ -122,7 +112,6 @@ export default function GivePage() {
               bankName="GTBank"
               accountNumber="0050990288"
               copyIcon="/logos/button.png"
-              onCopy={handleCopy}
             />
           </div>
         </div>
@@ -158,7 +147,6 @@ export default function GivePage() {
               bankName="Access Bank"
               accountNumber="0006822216"
               copyIcon="/logos/button.png"
-              onCopy={handleCopy}
             />
           </div>
 
@@ -190,7 +178,6 @@ export default function GivePage() {
               bankName="Access Bank"
               accountNumber="0006822216"
               copyIcon="/logos/button.png"
-              onCopy={handleCopy}
             />
           </div>
         </div>
@@ -219,7 +206,7 @@ export default function GivePage() {
             </div>
           </div>
 
-          <div className="bg-[#2A1870] text-white py-3 px-6 text-center font-small hover:bg-blue-900 cursor-pointer tracking-wide w-full md:w-auto mx-auto md:mx-0 rounded-md">
+          <div className="mt-auto mb-6 md:mb-12 bg-[#2A1870] text-white py-3 px-6 text-center font-small hover:bg-blue-900 cursor-pointer tracking-wide w-full md:w-auto mx-auto md:mx-0">
             GIVE NOW →
           </div>
         </div>

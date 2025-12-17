@@ -6,6 +6,7 @@ import Image from "next/image";
 import { MdLogin } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { usePathname } from "next/navigation";
+import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 
 export const NavBar = () => {
   const pathname = usePathname();
@@ -180,11 +181,18 @@ export const NavBar = () => {
             <div>
               <button
                 onClick={() => setMediaOpen(!mediaOpen)}
-                className={`w-full text-left ${
+                className={`w-full flex items-center justify-between ${
                   pathname.startsWith("/media") ? "text-blue-700 font-bold" : ""
                 }`}
               >
-                MEDIA {mediaOpen ? "▴" : "▾"}
+                <span>MEDIA</span>
+                <span className="flex items-center">
+                  {mediaOpen ? (
+                    <FaChevronUp size={14} />
+                  ) : (
+                    <FaChevronDown size={14} />
+                  )}
+                </span>
               </button>
 
               {mediaOpen && (

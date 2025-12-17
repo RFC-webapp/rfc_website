@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import { toast } from "sonner";
 
 interface BankAccountCardProps {
   bankLogo: string;
   bankName: string;
   accountNumber: string;
   copyIcon: string;
-  onCopy: (value: string) => void;
 }
 
 export default function BankCard({
@@ -15,8 +15,16 @@ export default function BankCard({
   bankName,
   accountNumber,
   copyIcon,
-  onCopy,
 }: BankAccountCardProps) {
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(accountNumber);
+      toast.success(`${bankName} account copied`);
+    } catch {
+      toast.error("Failed to copy account number");
+    }
+  };
+
   return (
     <div className="border bg-white p-4 rounded-md">
       {/* Bank Logo + Name */}
@@ -41,7 +49,7 @@ export default function BankCard({
           width={20}
           height={20}
           className="w-5 h-5 cursor-pointer hover:opacity-70"
-          onClick={() => onCopy(accountNumber)}
+          onClick={handleCopy}
         />
       </div>
     </div>
