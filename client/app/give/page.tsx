@@ -43,7 +43,8 @@ const faqs = [
 
 export default function page() {
   return (
-    <div className=" bg-white mt-20">
+    <div className="bg-white mt-20">
+      {/* Header Section */}
       <section className="container mx-auto bg-gray-100 w-fit rounded-full p-2 flex justify-center gap-x-4 items-center md:text-left text-center">
         <p className="text-xs sm:text-sm font-semibold text-gray-700">
           GIVE TO ROCK FOUNDATION CHURCH
@@ -58,30 +59,27 @@ export default function page() {
         />
       </section>
 
+      {/* Ways to Give Section */}
       <section className="container mx-auto text-center">
         <div className="mt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <h1 className="text-2xl md:text-6xl font-500 tracking-tight text-black">
             WAYS TO GIVE
           </h1>
-
           <p className="text-l text-gray-500">
             Convenient ways to give using wired transfers.
           </p>
         </div>
 
-        <div className=" block md:flex justify-center mt-6">
+        <div className="block md:flex justify-center mt-6">
           <div className="inline-flex rounded-full bg-gray-200 p-2 gap-1">
             <div className="px-6 text-center py-2 text-sm md:text-lg rounded-full bg-red-800 text-white font-medium">
               NAIRA AND DOMICILIARY ACCOUNT
             </div>
-
-            {/* <div className="px-6 py-2 rounded-full bg-gray-200 text-gray-600 cursor-pointer">
-                DOMICILIARY ACCOUNT
-              </div> */}
           </div>
         </div>
       </section>
 
+      {/* Bank Accounts Section */}
       <section className="container mx-auto p-8 mt-10 bg-[#D3D3D3] rounded-md">
         <h3 className="text-sm lg:text-xl text-center md:text-left font-semibold text-gray-700 mb-4">
           TITHES AND OFFERINGS
@@ -117,6 +115,7 @@ export default function page() {
         </div>
       </section>
 
+      {/* Offerings Section */}
       <section className="container mx-auto flex flex-col md:flex-row gap-5 mt-5 items-stretch">
         <div className="flex-1 bg-[#F3F4F6] rounded-md p-6 md:p-8 flex flex-col justify-between">
           {/* Pastors Offering */}
@@ -132,7 +131,6 @@ export default function page() {
                 />
                 <span className="text-sm font-semibold">Pastors Offering</span>
               </div>
-
               <Image
                 alt="Nigeria-flag logo"
                 width={20}
@@ -141,7 +139,6 @@ export default function page() {
                 className="w-6 h-4 object-cover rounded"
               />
             </div>
-
             <BankCard
               bankLogo="/logos/access-img.png"
               bankName="Access Bank"
@@ -163,7 +160,6 @@ export default function page() {
                 />
                 <span className="text-sm font-semibold">Mission Offering</span>
               </div>
-
               <Image
                 alt="Nigeria-flag logo"
                 width={20}
@@ -172,7 +168,6 @@ export default function page() {
                 className="w-6 h-4 object-cover rounded"
               />
             </div>
-
             <BankCard
               bankLogo="/logos/access-img.png"
               bankName="Access Bank"
@@ -182,7 +177,7 @@ export default function page() {
           </div>
         </div>
 
-        {/* Right Section */}
+        {/* PayPal Section */}
         <div className="flex-1 bg-[#F8EAEA] border border-[#2A1870] rounded-md flex flex-col justify-center md:justify-between mt-5 md:mt-0">
           <div className="p-4">
             <div className="flex items-start gap-3">
@@ -195,7 +190,6 @@ export default function page() {
                   className="w-6 h-auto object-contain"
                 />
               </div>
-
               <div className="flex flex-col text-left mt-1">
                 <div className="font-semibold">Give via PayPal</div>
               </div>
@@ -212,6 +206,7 @@ export default function page() {
         </div>
       </section>
 
+      {/* Hero Section */}
       <section className="relative w-full text-white mt-10 py-24 px-4 md:px-16 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -219,7 +214,6 @@ export default function page() {
             backgroundImage: "url('/images/give-image.avif')",
           }}
         />
-
         <div className="absolute inset-0 bg-[#161750] opacity-40" />
 
         <div className="relative max-w-4xl mx-auto text-center">
@@ -234,29 +228,24 @@ export default function page() {
 
           <div className="mt-10 max-2xl mx-auto">
             <p className="text-lg md:text-xl text-gray-200 leading-relaxed">
-              &quot;Each of you should give what you have decided in your heart
-              to give.&quot;
+              "Each of you should give what you have decided in your heart to
+              give."
             </p>
           </div>
+
           <div className="mt-12 flex flex-col md:flex-row items-center justify-center gap-4">
-            <button
-              className="bg-white text-black px-8 py-3 rounded-full font-medium 
-                border border-white 
-                hover:bg-transparent hover:text-white hover:border-white transition-all duration-500 ease-in-out cursor-pointer"
-            >
+            <button className="bg-white text-black px-8 py-3 rounded-full font-medium border border-white hover:bg-transparent hover:text-white hover:border-white transition-all duration-500 ease-in-out cursor-pointer">
               GIVE NOW
             </button>
 
-            <button
-              className="border border-white px-8 py-3 rounded-full font-medium 
-             hover:bg-white hover:text-black transition-all duration-500 ease-in-out cursor-pointer"
-            >
+            <button className="border border-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-black transition-all duration-500 ease-in-out cursor-pointer">
               OTHER WAYS TO GIVE
             </button>
           </div>
         </div>
       </section>
 
+      {/* FAQ Section */}
       <section className="min-h-screen py-12">
         <FAQSection
           title="Giving FAQs"
