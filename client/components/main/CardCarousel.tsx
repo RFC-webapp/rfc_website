@@ -17,7 +17,7 @@ export default function CardCarousel() {
       <Carousel
         plugins={[
           Autoplay({
-            delay: 2000,
+            delay: 4000,
           }),
         ]}
         className="w-full max-w-5xl mx-auto"

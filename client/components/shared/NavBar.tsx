@@ -15,6 +15,20 @@ export const NavBar = () => {
 
   const isActive = (path: string) => pathname === path;
 
+  const closeMobileMenu = () => {
+    setMenuOpen(false);
+    setMediaOpen(false);
+  };
+
+  // ✅ Desktop active / hover styles
+  const desktopLinkClass = (path: string) =>
+    `px-3 py-1 rounded-md border transition-all duration-200
+   ${
+     isActive(path)
+       ? "border-blue-700 bg-blue-50 text-blue-700 font-semibold"
+       : "border-transparent hover:border-blue-300 hover:bg-blue-50"
+   }`;
+
   return (
     <>
       {/* Navbar */}
@@ -27,89 +41,40 @@ export const NavBar = () => {
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-12">
-            <Link
-              href="/"
-              className={isActive("/") ? "text-blue-700 font-semibold" : ""}
-            >
+            <Link href="/" className={desktopLinkClass("/")}>
               HOME
             </Link>
-            <Link
-              href="/about"
-              className={
-                isActive("/about") ? "text-blue-700 font-semibold" : ""
-              }
-            >
+
+            <Link href="/about" className={desktopLinkClass("/about")}>
               ABOUT
             </Link>
-            <Link
-              href="/give"
-              className={isActive("/give") ? "text-blue-700 font-semibold" : ""}
-            >
+
+            <Link href="/give" className={desktopLinkClass("/give")}>
               GIVE
             </Link>
 
             {/* MEDIA DROPDOWN */}
             <div className="relative group">
               <button
-                className={`cursor-pointer ${
-                  pathname.startsWith("/media")
-                    ? "text-blue-700 font-semibold"
-                    : ""
-                }`}
+                className={`px-3 py-1 rounded-md border transition-all duration-200
+  ${
+    pathname.startsWith("/media")
+      ? "border-blue-700 bg-blue-50 text-blue-700 font-semibold"
+      : "border-transparent hover:border-blue-300 hover:bg-blue-50"
+  }`}
               >
                 MEDIA
               </button>
 
               <div className="absolute top-full left-0 bg-white shadow-lg rounded-md py-3 px-4 flex flex-col gap-2 min-w-[180px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <Link
-                  href="/media/e-library"
-                  className={
-                    isActive("/media/e-library")
-                      ? "text-blue-700 font-semibold"
-                      : "hover:text-blue-700"
-                  }
-                >
-                  E-Library
-                </Link>
-                <Link
-                  href="/media/sermons"
-                  className={
-                    isActive("/media/sermons")
-                      ? "text-blue-700 font-semibold"
-                      : "hover:text-blue-700"
-                  }
-                >
-                  Sermons
-                </Link>
-                <Link
-                  href="/media/livestream"
-                  className={
-                    isActive("/media/livestream")
-                      ? "text-blue-700 font-semibold"
-                      : "hover:text-blue-700"
-                  }
-                >
-                  Live Stream
-                </Link>
-                <Link
-                  href="/media/blog"
-                  className={
-                    isActive("/media/blog")
-                      ? "text-blue-700 font-semibold"
-                      : "hover:text-blue-700"
-                  }
-                >
-                  Blog
-                </Link>
+                <Link href="/media/e-library">E-Library</Link>
+                <Link href="/media/sermons">Sermons</Link>
+                <Link href="/media/livestream">Live Stream</Link>
+                <Link href="/media/blog">Blog</Link>
               </div>
             </div>
 
-            <Link
-              href="/contact"
-              className={
-                isActive("/contact") ? "text-blue-700 font-semibold" : ""
-              }
-            >
+            <Link href="/contact" className={desktopLinkClass("/contact")}>
               CONTACT
             </Link>
           </div>
@@ -117,12 +82,7 @@ export const NavBar = () => {
           {/* Desktop Login */}
           <div className="hidden md:flex items-center space-x-2">
             <MdLogin className={isActive("/login") ? "text-blue-700" : ""} />
-            <Link
-              href="/login"
-              className={
-                isActive("/login") ? "text-blue-700 font-semibold" : ""
-              }
-            >
+            <Link href="/login" className={desktopLinkClass("/login")}>
               LOGIN
             </Link>
           </div>
@@ -136,9 +96,9 @@ export const NavBar = () => {
 
       {/* Mobile Slide-In Menu */}
       <div
-        className={`fixed inset-0 z-50 md:hidden transition-opacity duration-300 ${
-          menuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
+        className={`fixed inset-0 z-50 md:hidden transition-all duration-300 ease-in-out
+          ${menuOpen ? "opacity-100 visible" : "opacity-0 invisible"}
+          backdrop-blur-[2px]`}
         onClick={() => setMenuOpen(false)}
       >
         <div className="absolute inset-0 bg-black/40"></div>
@@ -158,22 +118,13 @@ export const NavBar = () => {
 
           {/* Mobile Links */}
           <div className="flex flex-col gap-4 text-[16px] mt-4">
-            <Link
-              href="/"
-              className={isActive("/") ? "text-blue-700 font-bold" : ""}
-            >
+            <Link href="/" onClick={closeMobileMenu}>
               HOME
             </Link>
-            <Link
-              href="/about"
-              className={isActive("/about") ? "text-blue-700 font-bold" : ""}
-            >
+            <Link href="/about" onClick={closeMobileMenu}>
               ABOUT
             </Link>
-            <Link
-              href="/give"
-              className={isActive("/give") ? "text-blue-700 font-bold" : ""}
-            >
+            <Link href="/give" onClick={closeMobileMenu}>
               GIVE
             </Link>
 
@@ -181,79 +132,43 @@ export const NavBar = () => {
             <div>
               <button
                 onClick={() => setMediaOpen(!mediaOpen)}
-                className={`w-full flex items-center justify-between ${
-                  pathname.startsWith("/media") ? "text-blue-700 font-bold" : ""
-                }`}
+                className="w-full flex items-center justify-between"
               >
                 <span>MEDIA</span>
-                <span className="flex items-center">
-                  {mediaOpen ? (
-                    <FaChevronUp size={14} />
-                  ) : (
-                    <FaChevronDown size={14} />
-                  )}
-                </span>
+                {mediaOpen ? (
+                  <FaChevronUp size={14} />
+                ) : (
+                  <FaChevronDown size={14} />
+                )}
               </button>
 
               {mediaOpen && (
                 <div className="flex flex-col gap-2 mt-2 ml-3 text-[15px]">
-                  <Link
-                    href="/media/e-library"
-                    className={
-                      isActive("/media/e-library")
-                        ? "text-blue-700 font-bold"
-                        : ""
-                    }
-                  >
+                  <Link href="/media/e-library" onClick={closeMobileMenu}>
                     E-Library
                   </Link>
-                  <Link
-                    href="/media/sermons"
-                    className={
-                      isActive("/media/sermons")
-                        ? "text-blue-700 font-bold"
-                        : ""
-                    }
-                  >
+                  <Link href="/media/sermons" onClick={closeMobileMenu}>
                     Sermons
                   </Link>
-                  <Link
-                    href="/media/livestream"
-                    className={
-                      isActive("/media/livestream")
-                        ? "text-blue-700 font-bold"
-                        : ""
-                    }
-                  >
+                  <Link href="/media/livestream" onClick={closeMobileMenu}>
                     Live Stream
                   </Link>
-                  <Link
-                    href="/media/blog"
-                    className={
-                      isActive("/media/blog") ? "text-blue-700 font-bold" : ""
-                    }
-                  >
+                  <Link href="/media/blog" onClick={closeMobileMenu}>
                     Blog
                   </Link>
                 </div>
               )}
             </div>
 
-            <Link
-              href="/contact"
-              className={isActive("/contact") ? "text-blue-700 font-bold" : ""}
-            >
+            <Link href="/contact" onClick={closeMobileMenu}>
               CONTACT
             </Link>
           </div>
 
           {/* Mobile Login */}
           <div className="flex items-center gap-2 mt-6">
-            <MdLogin className={isActive("/login") ? "text-blue-700" : ""} />
-            <Link
-              href="/login"
-              className={isActive("/login") ? "text-blue-700 font-bold" : ""}
-            >
+            <MdLogin />
+            <Link href="/login" onClick={closeMobileMenu}>
               LOGIN
             </Link>
           </div>
