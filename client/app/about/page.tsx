@@ -51,11 +51,7 @@ export default function page() {
           />
 
           {/* Overlay content */}
-          <div
-            className="absolute inset-0 
-                 flex flex-col justify-center items-center
-                 text-center text-white bg-black/40"
-          >
+          <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white bg-black/40">
             <h3 className="font-medium text-[16px]">ABOUT US</h3>
 
             <h1 className="text-[24px] md:text-[64px] font-bold mb-2">
@@ -201,6 +197,7 @@ export default function page() {
         </div>
       </section>
 
+      {/* testimony */}
       <section className="text-center my-15 py-10 px-4">
         <div className="container mx-auto">
           <div className="flex justify-center">
@@ -286,7 +283,7 @@ export default function page() {
           Meet our Inspirational team
         </h1>
 
-        <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 text-center font-roboto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 text-center font-roboto">
           <TeamCard
             name="Rev. Tunde Amosun"
             role="Head Pastor"

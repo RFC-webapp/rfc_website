@@ -17,7 +17,7 @@ export default function CardCarousel() {
       <Carousel
         plugins={[
           Autoplay({
-            delay: 2000,
+            delay: 4000,
           }),
         ]}
         className="w-full max-w-5xl mx-auto"
@@ -60,7 +60,7 @@ export default function CardCarousel() {
 
         {/* Hide arrows on mobile */}
         <CarouselPrevious className="hidden md:flex" />
-        <CarouselNext className="hidden lg:flex" />
+        <CarouselNext className="hidden md:flex" />
       </Carousel>
     </div>
   );
