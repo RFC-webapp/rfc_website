@@ -60,7 +60,7 @@ export default function CardCarousel() {
 
         {/* Hide arrows on mobile */}
         <CarouselPrevious className="hidden md:flex" />
-        <CarouselNext className="hidden md:flex" />
+        <CarouselNext className="hidden lg:flex" />
       </Carousel>
     </div>
   );

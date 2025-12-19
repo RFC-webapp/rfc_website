@@ -1,7 +1,40 @@
+import CounsellorCard from "@/components/about/CounsellorCard";
+import TeamCard from "@/components/about/TeamCard";
 import CardCarousel from "@/components/main/CardCarousel";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { FaFacebook, FaTwitter, FaLinkedin, FaBible } from "react-icons/fa";
+import { FaBible } from "react-icons/fa";
+
+const counsellor = [
+  {
+    title: "Relationship Team",
+    description:
+      "Navigating relationships can be beautiful—but also confusing. Our Relationship Team is here to walk with singles who are dating or courting, offering godly counsel, practical wisdom, confidentiality and a safe place to talk through real issues. Whether you're seeking clarity, direction, or personal growth, this team helps you build strong foundations for a Christ-centered relationship. You don’t have to figure it out alone—let us journey with you.",
+    imageSrc: "/images/counselling.png",
+    reverse: false,
+  },
+  {
+    title: "Marriage Counseling",
+    description:
+      "Whether you're preparing for marriage or already on the journey, our Marriage Counseling Team is here to support you. We provide Christ-centered guidance for couples who want to build strong foundations, overcome challenges, or simply rekindle their passion and connection. From premarital counseling to ongoing support for married couples, we offer a safe, confidential space where you can talk openly, heal deeply, and grow together. Because every marriage deserves wisdom, support, and a fresh spark of love.",
+    imageSrc: "/images/counselling.png",
+    reverse: true,
+  },
+  {
+    title: "Deacon Stephen",
+    description:
+      "The Deacon Stephen Team is dedicated to helping individuals overcome addictions and reclaim their lives through Christ. With grace, understanding, and confidentiality, they offer counseling, support, and spiritual guidance to anyone struggling with habits that feel too heavy to carry alone. This team walks beside you—not with judgment, but with hope—helping you find strength, healing, and lasting freedom. You’re not defined by your struggles. There is a way out, and you don’t have to walk it alone.",
+    imageSrc: "/images/counselling.png",
+    reverse: false,
+  },
+  {
+    title: "Believers Court",
+    description:
+      "“If any of you has a dispute with another, do you dare to take it before the ungodly for judgment instead of before the Lord’s people?” — 1 Corinthians 6:1 Guided by this principle, our Believers Court provides a confidential, Spirit-led environment where issues are resolved with integrity and compassion. Whether the conflict is personal, relational, or within ministry, this team helps restore harmony and uphold the unity of the body of Christ. Because in God’s family, peace isn’t just restored—it’s protected.",
+    imageSrc: "/images/counselling.png",
+    reverse: true,
+  },
+];
 
 export default function page() {
   return (
@@ -36,7 +69,7 @@ export default function page() {
         </div>
       </section>
 
-      <section className="w-full hidden md:flex justify-center items-center my-10">
+      {/* <section className="w-full hidden md:flex justify-center items-center my-10">
         <div className="flex flex-col md:flex-row gap-6 items-center">
           <div className="w-full md:w-[280px] h-[380px] rounded-3xl overflow-hidden flex justify-center">
             <Image
@@ -44,7 +77,7 @@ export default function page() {
               alt="About Us"
               width={280}
               height={380}
-              className="object-contain" 
+              className="object-contain"
             />
           </div>
           <div className="w-full md:w-[340px] h-[460px] rounded-3xl overflow-hidden flex justify-center">
@@ -66,7 +99,7 @@ export default function page() {
             />
           </div>
         </div>
-      </section>
+      </section> */}
 
       <div
       // className="w-full h-full object-cover"
@@ -76,28 +109,28 @@ export default function page() {
         <div className="w-full md:w-[372px] text-center md:text-left">
           <h5 className="font-normal text-[16px]">OUR MISSION & VISION</h5>
           <h2 className="font-semibold text-[32px]">
-            from freedom to fruitfulness
+            From Freedom to Fruitfulness
           </h2>
           <p className="font-normal text-[16px]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum.
+            At Rock Foundation Church, our mission is to lead people into the
+            freedom found only in Jesus Christ and to equip them to live
+            fruitful, purpose-driven lives. We exist to see hearts transformed,
+            families restored, and destinies awakened through the life-changing
+            power of God’s Word and the Holy Spirit.
           </p>
         </div>
 
         <div className="w-full md:w-[372px] text-center md:text-left">
           <h5 className="font-normal text-[16px]">WHAT WE DO</h5>
           <h2 className="font-semibold text-[32px]">
-            making matured followers of christ
+            Making Matured Followers of Christ
           </h2>
           <p className="font-normal text-[16px]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum.
+            We are committed to helping every believer grow from a place of
+            spiritual curiosity to spiritual maturity. Through intentional
+            teaching, discipleship, and community, we guide people into a deeper
+            relationship with Christ—one that transforms lives, strengthens
+            families, and impacts the world.
           </p>
         </div>
       </section>
@@ -187,74 +220,36 @@ export default function page() {
           </p>
 
           <div className="flex flex-col md:flex-row justify-between gap-10 text-left">
-            <div className="">
+            <div className="text-justify w-fit">
               <h5 className="text-[#111827] font-semibold text-[18px] pb-3">
                 Favor in Relocation Process
               </h5>
               <p className="font-normal text-[16px] text-[#000000 64%]">
-                I want to testify of God's unfailing faithfulness and the
-                fulfillment of His promises in my life. Late last year, God gave
-                me a word: He said He was opening the doors of nations unto me.
-                I held on to that promise and trusted Him completely. Today, by
-                His grace, I am standing in the UK as a living testimony to His
-                covenant-keeping nature. It didn't even take six months for God
-                to fulfill what He had spoken over my life. Throughout that
-                season, every word spoken from the altar was God speaking
-                directly to me. He gave me clear instructions and constant
-                reassurance, reminding me that “ na Him dey run this”— that no
-                man could take the glory for what He was about to do. I remember
-                one particular Sunday when Rev. asked us to worship God
-                undignified, and she said that God was handing out packages to
-                individuals. In that moment, I knew in my spirit that mine had
-                been released. I could sense it! The very next day, I had my CAS
-                interview. It was as though the officer was already welcoming me
-                to the UK before the process was even completed. Just four hours
-                after that interview, I received my CAS letter. But God wasn't
-                done yet! I applied for my visa and received a response exactly
-                26 hours later—without any premium service or expedited
-                processing. It was purely the hand of God at work! This entire
-                journey has shown me that when God carries you, He carries you
-                all the way. He is indeed a covenant-keeping God, and I can
-                testify that His word never returns void. He is faithful to
-                fulfill every promise He makes. To Him alone be all the glory,
-                honor, and praise forevermore! Amen
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam,
+                sed reprehenderit delectus eaque earum adipisci aliquam hic
+                maxime, mollitia nostrum ipsam. Nihil excepturi facere autem,
+                voluptatum incidunt aperiam accusamus assumenda officiis,
+                repudiandae alias consequatur sit placeat, pariatur praesentium
+                recusandae delectus doloribus cumque voluptatibus. Consequuntur,
+                eos vel! Aspernatur placeat ea ex?
               </p>
               <p className="font-semibold text-[16px] pt-5 text-[#6B7280]">
                 Busayo
               </p>
             </div>
 
-            <div className="text-left">
+            <div className="text-justify w-fit">
               <h5 className="text-[#111827] font-semibold text-[18px] pb-3">
                 Favor in Relocation Process
               </h5>
               <p className="font-normal text-[16px] text-[#000000 64%]">
-                I want to testify of God's unfailing faithfulness and the
-                fulfillment of His promises in my life. Late last year, God gave
-                me a word: He said He was opening the doors of nations unto me.
-                I held on to that promise and trusted Him completely. Today, by
-                His grace, I am standing in the UK as a living testimony to His
-                covenant-keeping nature. It didn't even take six months for God
-                to fulfill what He had spoken over my life. Throughout that
-                season, every word spoken from the altar was God speaking
-                directly to me. He gave me clear instructions and constant
-                reassurance, reminding me that “ na Him dey run this”— that no
-                man could take the glory for what He was about to do. I remember
-                one particular Sunday when Rev. asked us to worship God
-                undignified, and she said that God was handing out packages to
-                individuals. In that moment, I knew in my spirit that mine had
-                been released. I could sense it! The very next day, I had my CAS
-                interview. It was as though the officer was already welcoming me
-                to the UK before the process was even completed. Just four hours
-                after that interview, I received my CAS letter. But God wasn't
-                done yet! I applied for my visa and received a response exactly
-                26 hours later—without any premium service or expedited
-                processing. It was purely the hand of God at work! This entire
-                journey has shown me that when God carries you, He carries you
-                all the way. He is indeed a covenant-keeping God, and I can
-                testify that His word never returns void. He is faithful to
-                fulfill every promise He makes. To Him alone be all the glory,
-                honor, and praise forevermore! Amen
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
+                vero vel consequatur illo fugiat earum deleniti quis, quas,
+                perspiciatis necessitatibus, facilis veniam delectus voluptate
+                ducimus nemo dolorum deserunt dolorem recusandae. Qui
+                consequatur nihil, hic necessitatibus aut praesentium quidem
+                laudantium quasi accusamus modi velit doloribus molestiae, esse
+                non, enim mollitia corporis.
               </p>
               <p className="font-semibold text-[16px] pt-5 text-[#6B7280]">
                 Busayo
@@ -272,98 +267,16 @@ export default function page() {
           See our counselling teams
         </h1>
 
-        <div className="flex flex-col md:flex-row justify-around items-center gap-x-2 mb-10">
-          <Image
-            src="/images/counselling.png"
-            alt=""
-            width={500}
-            height={320}
-            className="w-full md:w-[500px] h-auto object-cover order-first md:order-last"
-            quality={100}
-          />
-
-          <div className="w-full md:w-1/2 order-last md:order-first">
-            <h1 className="font-bold text-[32px] font-poppins">
-              Relationship team
-            </h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit.
-            </p>
-          </div>
-        </div>
-
-        <div className="flex flex-col-reverse md:flex-row justify-around items-center gap-x-2 mb-10">
-          <Image
-            src="/images/counselling.png"
-            alt=""
-            width={500}
-            height={320}
-            className="w-full md:w-[500px] h-auto object-cover"
-            quality={100}
-          />
-          <div className="w-full md:w-1/2">
-            <h1 className="font-bold text-[32px] font-poppins">
-              Relationship team
-            </h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit.
-            </p>
-          </div>
-        </div>
-
-        <div className="flex flex-col md:flex-row justify-around items-center gap-x-2 mb-10">
-          <Image
-            src="/images/counselling.png"
-            alt=""
-            width={500}
-            height={320}
-            className="w-full md:w-[500px] h-auto object-cover order-first md:order-last"
-            quality={100}
-          />
-
-          <div className="w-full md:w-1/2 order-last md:order-first">
-            <h1 className="font-bold text-[32px] font-poppins">
-              Relationship team
-            </h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit.
-            </p>
-          </div>
-        </div>
-
-        <div className="flex flex-col-reverse md:flex-row justify-around items-center gap-x-2 mb-10">
-          <Image
-            src="/images/counselling.png"
-            alt=""
-            width={500}
-            height={320}
-            className="w-full md:w-[500px] h-auto object-cover"
-            quality={100}
-          />
-          <div className="w-full md:w-1/2">
-            <h1 className="font-bold text-[32px] font-poppins">
-              Relationship team
-            </h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit.
-            </p>
-          </div>
+        <div className="flex flex-col">
+          {counsellor.map((c) => (
+            <CounsellorCard
+              key={c.title}
+              title={c.title}
+              description={c.description}
+              imageSrc={c.imageSrc}
+              reverse={c.reverse}
+            />
+          ))}
         </div>
       </section>
 
@@ -373,74 +286,50 @@ export default function page() {
           Meet our Inspirational team
         </h1>
 
-        <div className="md:flex justify-center gap-x-10 text-center font-roboto">
-          <div className="w-[302px] h-[366px] bg-white shadow-2xl flex flex-col justify-center items-center text-center">
-            <Image
-              src="/images/home.png"
-              alt=""
-              width={152}
-              height={152}
-              className="rounded-full mb-10"
-            />
-            <h1 className="font-bold text-[16px]">Rev. Tunde Amosun</h1>
-            <p className="text-black/70 pt-2">Head Pastor, Church</p>
-            <div className="flex justify-center pt-2 gap-x-5.5">
-              <FaFacebook />
-              <FaTwitter />
-              <FaLinkedin />
-            </div>
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4 gap-4 md:gap-6 text-center font-roboto">
+          <TeamCard
+            name="Rev. Tunde Amosun"
+            role="Head Pastor"
+            imageSrc="/images/home.png"
+            socials={{
+              facebook: "https://facebook.com/...",
+              twitter: "https://twitter.com/...",
+              linkedin: "https://linkedin.com/...",
+            }}
+          />
 
-          <div className="w-[302px] h-[366px] bg-white shadow-2xl flex flex-col justify-center items-center text-center">
-            <Image
-              src="/images/home.png"
-              alt=""
-              width={152}
-              height={152}
-              className="rounded-full mb-10"
-            />
-            <h1 className="font-bold text-[16px]">Rev. Tunde Amosun</h1>
-            <p className="text-black/70 pt-2">Head Pastor, Church</p>
-            <div className="flex justify-center pt-2 gap-x-5.5">
-              <FaFacebook />
-              <FaTwitter />
-              <FaLinkedin />
-            </div>
-          </div>
+          <TeamCard
+            name="Rev. Mrs Kemi Amosun"
+            role="Pastor"
+            imageSrc="/images/home.png"
+            socials={{
+              facebook: "https://facebook.com/",
+              twitter: "https://twitter.com/",
+              linkedin: "https://linkedin.com/",
+            }}
+          />
 
-          <div className="w-[302px] h-[366px] bg-white shadow-2xl flex flex-col justify-center items-center text-center">
-            <Image
-              src="/images/home.png"
-              alt=""
-              width={152}
-              height={152}
-              className="rounded-full mb-10"
-            />
-            <h1 className="font-bold text-[16px]">Rev. Tunde Amosun</h1>
-            <p className="text-black/70 pt-2">Head Pastor, Church</p>
-            <div className="flex justify-center pt-2 gap-x-5.5">
-              <FaFacebook />
-              <FaTwitter />
-              <FaLinkedin />
-            </div>
-          </div>
+          <TeamCard
+            name="Prof. Ade Enikome"
+            role="Pastor"
+            imageSrc="/images/home.png"
+            socials={{
+              facebook: "https://facebook.com/",
+              twitter: "https://twitter.com/",
+              linkedin: "https://linkedin.com/",
+            }}
+          />
 
-          <div className="w-[302px] h-[366px] bg-white shadow-2xl flex flex-col justify-center items-center text-center">
-            <Image
-              src="/images/home.png"
-              alt=""
-              width={152}
-              height={152}
-              className="rounded-full mb-10"
-            />
-            <h1 className="font-bold text-[16px]">Rev. Tunde Amosun</h1>
-            <p className="text-black/70 pt-2">Head Pastor, Church</p>
-            <div className="flex justify-center pt-2 gap-x-5.5">
-              <FaFacebook />
-              <FaTwitter />
-              <FaLinkedin />
-            </div>
-          </div>
+          <TeamCard
+            name="Prof. Olushola Kehinde"
+            role="Pastor"
+            imageSrc="/images/home.png"
+            socials={{
+              facebook: "https://facebook.com/",
+              twitter: "https://twitter.com/",
+              linkedin: "https://linkedin.com/",
+            }}
+          />
         </div>
       </section>
     </div>
