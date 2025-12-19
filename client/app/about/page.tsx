@@ -69,7 +69,7 @@ export default function page() {
         </div>
       </section>
 
-      {/* <section className="w-full hidden md:flex justify-center items-center my-10">
+      <section className="w-full hidden md:flex justify-center items-center my-10">
         <div className="flex flex-col md:flex-row gap-6 items-center">
           <div className="w-full md:w-[280px] h-[380px] rounded-3xl overflow-hidden flex justify-center">
             <Image
@@ -99,7 +99,7 @@ export default function page() {
             />
           </div>
         </div>
-      </section> */}
+      </section>
 
       <div
       // className="w-full h-full object-cover"
@@ -201,7 +201,7 @@ export default function page() {
         </div>
       </section>
 
-      <section className="text-center shadow-lg my-15 py-10 px-4">
+      <section className="text-center my-15 py-10 px-4">
         <div className="container mx-auto">
           <div className="flex justify-center">
             <div className="flex items-center gap-2 border rounded-lg px-3 py-1 bg-white">
@@ -220,7 +220,7 @@ export default function page() {
           </p>
 
           <div className="flex flex-col md:flex-row justify-between gap-10 text-left">
-            <div className="text-justify w-fit">
+            <div className="text-justify w-fit shadow-xs">
               <h5 className="text-[#111827] font-semibold text-[18px] pb-3">
                 Favor in Relocation Process
               </h5>
@@ -286,7 +286,7 @@ export default function page() {
           Meet our Inspirational team
         </h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4 gap-4 md:gap-6 text-center font-roboto">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 text-center font-roboto">
           <TeamCard
             name="Rev. Tunde Amosun"
             role="Head Pastor"
