@@ -17,8 +17,8 @@ export default function CounsellorCard({
 }: CounsellorCardProps) {
   return (
     <div
-      className={`flex flex-col md:flex-row justify-around items-center gap-x-2 mb-10 ${
-        reverse ? "" : "flex-col-reverse md:flex-row" 
+      className={`flex flex-col md:flex-row justify-around items-center gap-2 mb-10 ${
+        reverse ? "" : "flex-col-reverse md:flex-row"
       }`}
     >
       <Image
@@ -27,7 +27,7 @@ export default function CounsellorCard({
         width={500}
         height={320}
         quality={100}
-        className={`w-full md:w-[500px] h-auto object-cover ${
+        className={`w-full md:w-125 h-auto object-cover ${
           reverse ? "" : "order-first md:order-last"
         }`}
       />
@@ -37,8 +37,10 @@ export default function CounsellorCard({
           reverse ? "" : "order-last md:order-first"
         }`}
       >
-        <h1 className="font-bold md:text-[32px] text-[20px] font-poppins">{title}</h1>
-        <p className="mt-2 text-black/80">{description}</p>
+        <h1 className="font-bold md:text-[32px] text-[20px] font-poppins">
+          {title}
+        </h1>
+        <p className="mt-2 text-[##161722]">{description}</p>
       </div>
     </div>
   );
