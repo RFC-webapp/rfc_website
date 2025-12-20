@@ -1,4 +1,4 @@
-import FAQSection from "@/components/faq-section";
+import FAQSection from "@/components/FAQSection";
 
 const faqs = [
   {

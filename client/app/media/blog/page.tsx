@@ -1,4 +1,3 @@
-import React from 'react'
 import { cardData } from '../../../components/media/BlogData'
 
 const page = () => {
