@@ -67,10 +67,11 @@ export default function FAQSection({
         ))}
       </Accordion>
 
-      <div className="mt-10 text-[20px] text-center font-semibold text-[#000000]">
+      <div className="mt-10 text-base md:text-lg text-center font-semibold text-[#000000]">
         {showSentence && sentence && <>{sentence} </>}
         {linkHref && linkLabel && (
-          <Link href={linkHref} className="hover-underline">
+          <Link href={linkHref}>
+            <span className="hover-underline hover:text-xl"></span>
             {linkLabel} →
           </Link>
         )}
