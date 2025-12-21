@@ -107,7 +107,7 @@ export default function page() {
           <div className="w-full">
             <BankCard
               bankLogo="/logos/gtbank-img.png"
-              bankName="GTBank"
+              bankName="Guaranty Trust Bank"
               accountNumber="0050990288"
               copyIcon="/logos/button.png"
             />
@@ -140,9 +140,9 @@ export default function page() {
               />
             </div>
             <BankCard
-              bankLogo="/logos/access-img.png"
-              bankName="Access Bank"
-              accountNumber="0006822216"
+              bankLogo="/logos/stanbic.png"
+              bankName="Stanbic Bank"
+              accountNumber="0011223344"
               copyIcon="/logos/button.png"
             />
           </div>
@@ -158,7 +158,7 @@ export default function page() {
                   height={20}
                   className="w-6 h-6"
                 />
-                <span className="text-sm font-semibold">Mission Offering</span>
+                <span className="text-sm font-semibold">Mission Account</span>
               </div>
               <Image
                 alt="Nigeria-flag logo"
@@ -169,16 +169,16 @@ export default function page() {
               />
             </div>
             <BankCard
-              bankLogo="/logos/access-img.png"
-              bankName="Access Bank"
-              accountNumber="0006822216"
+              bankLogo="/logos/gtbank-img.png"
+              bankName="Guaranty Trust Bank"
+              accountNumber="0032709990"
               copyIcon="/logos/button.png"
             />
           </div>
         </div>
 
         {/* PayPal Section */}
-        <div className="flex-1 bg-[#F8EAEA] border border-[#2A1870] rounded-md flex flex-col justify-center md:justify-between mt-5 md:mt-0">
+        <div className="flex-1 bg-[#F8EAEA] border border-[#2A1870] rounded-md flex flex-col justify-center md:justify-between mt-5 md:mt-0 mx-2 md:mx-0">
           <div className="p-4">
             <div className="flex items-start gap-3">
               <div className="bg-white rounded p-1 shadow-sm">

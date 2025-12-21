@@ -50,9 +50,30 @@ export const Footer = () => {
         <div className="md:w-[30%] text-center lg:w-auto">
           <h4 className="font-normal pb-2 text-[16px]">Connect With Us</h4>
           <div className="flex gap-6 justify-center items-center">
-            <MdFacebook size={24} color="#73B834" />
-            <FaInstagram size={24} color="#73B834" />
-            <FiYoutube size={24} color="#73B834" />
+            <Link
+              href="https://facebook.com/rfc.abeokuta/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-110 transition-transform"
+            >
+              <MdFacebook size={24} color="#73B834" />
+            </Link>
+            <Link
+              href="https://www.instagram.com/rfc_abeokuta/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-110 transition-transform"
+            >
+              <FaInstagram size={24} color="#73B834" />
+            </Link>
+            <Link
+              href="https://www.youtube.com/@tundeamosun"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-110 transition-transform"
+            >
+              <FiYoutube size={24} color="#73B834" />
+            </Link>
           </div>
         </div>
 
@@ -63,7 +84,7 @@ export const Footer = () => {
           </h1>
 
           <p className="font-normal text-[12px] md:text-[16px] mb-4">
-            Be the first to receive news of our special offers and promotions
+            Be the first to receive news and announcements
           </p>
 
           <div className="w-full max-w-md">
