@@ -178,7 +178,7 @@ export default function page() {
         </div>
 
         {/* PayPal Section */}
-        <div className="flex-1 bg-[#F8EAEA] border border-[#2A1870] rounded-md flex flex-col justify-center md:justify-between mt-5 md:mt-0 mx-8 md:mx-0">
+        <div className="flex-1 bg-[#F8EAEA] border border-[#2A1870] rounded-md flex flex-col justify-center md:justify-between mt-5 md:mt-0 mx-6 md:mx-0">
           <div className="p-4">
             <div className="flex items-start gap-3">
               <div className="bg-white rounded p-1 shadow-sm">
