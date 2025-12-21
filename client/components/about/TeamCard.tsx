@@ -22,7 +22,7 @@ export default function TeamCard({
   socials,
 }: TeamCardProps) {
   return (
-    <div className="w-[302px] h-[366px] bg-[##FAFAFA] shadow-md flex flex-col justify-center items-center text-center rounded-2xl">
+    <div className="w-75.5 h-91.5 bg-[##FAFAFA] shadow-md flex flex-col justify-center items-center text-center rounded-xl">
       <Image
         src={imageSrc}
         alt={name}

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import FAQSection from "@/components/faq-section";
+import FAQSection from "@/components/FAQSection";
 import BankCard from "@/components/BankCard";
 
 const faqs = [
@@ -228,8 +228,8 @@ export default function page() {
 
           <div className="mt-10 max-2xl mx-auto">
             <p className="text-lg md:text-xl text-gray-200 leading-relaxed">
-              "Each of you should give what you have decided in your heart to
-              give."
+              &quot;Each of you should give what you have decided in your heart
+              to give.&quot;
             </p>
           </div>
 

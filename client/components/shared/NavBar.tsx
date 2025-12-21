@@ -35,9 +35,11 @@ export const NavBar = () => {
       <nav className="fixed top-0 left-0 w-full bg-white text-[#2A1870] py-3 z-50 shadow">
         <div className="container mx-auto flex justify-between items-center px-2 lg:px-0 font-medium text-[16px]">
           {/* Logo */}
-          <div>
-            <Image src="/church-logo.png" alt="logo" width={40} height={40} />
-          </div>
+          <Link href="/">
+            <div>
+              <Image src="/church-logo.png" alt="logo" width={40} height={40} />
+            </div>
+          </Link>
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-12">
@@ -57,11 +59,11 @@ export const NavBar = () => {
             <div className="relative group">
               <button
                 className={`px-3 py-1 rounded-md border transition-all duration-200
-  ${
-    pathname.startsWith("/media")
-      ? "border-blue-700 bg-blue-50 text-blue-700 font-semibold"
-      : "border-transparent hover:border-blue-300 hover:bg-blue-50"
-  }`}
+                ${
+                  pathname.startsWith("/media")
+                    ? "border-blue-700 bg-blue-50 text-blue-700 font-semibold"
+                    : "border-transparent hover:border-blue-300 hover:bg-blue-50"
+                }`}
               >
                 MEDIA
               </button>

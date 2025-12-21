@@ -217,7 +217,7 @@ export default function page() {
           </p>
 
           <div className="flex flex-col md:flex-row justify-between gap-10 text-left">
-            <div className="text-justify w-fit shadow-xs">
+            <div className="text-justify w-fit">
               <h5 className="text-[#111827] font-semibold text-[18px] pb-3">
                 Favor in Relocation Process
               </h5>
@@ -283,7 +283,8 @@ export default function page() {
           Meet our Inspirational team
         </h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 text-center font-roboto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 text-center font-roboto place-items-center">
+        {/* <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 text-center font-roboto"> */}
           <TeamCard
             name="Rev. Tunde Amosun"
             role="Head Pastor"
