@@ -45,7 +45,7 @@ export default function FAQSection({
             className="border-b border-[#161750] py-4"
           >
             <AccordionTrigger
-              className="flex w-full justify-between text-left text-[18px] font-semibold text-[#1A2254] 
+              className="flex w-full justify-between text-left text-lg md:text-xl font-semibold text-[#1A2254] 
               no-underline hover:no-underline focus:no-underline 
               decoration-transparent hover:decoration-transparent focus:decoration-transparent"
             >
@@ -60,7 +60,7 @@ export default function FAQSection({
               </span>
             </AccordionTrigger>
 
-            <AccordionContent className="pl-16 pr-4 font-poppins font-extralight text-[#000000] text-[20px]">
+            <AccordionContent className="pl-16 pr-2 font-poppins font-extralight text-[#000000] text-base md:text-lg">
               {faq.answer}
             </AccordionContent>
           </AccordionItem>
