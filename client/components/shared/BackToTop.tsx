@@ -26,7 +26,7 @@ export default function BackToTop() {
   return (
     <button
       onClick={scrollToTop}
-      className="fixed bottom-8 right-8 bg-[#222357] hover:bg-[#2223400] text-white p-4 rounded-full shadow-lg transition-all duration-300 z-50"
+      className="fixed bottom-8 right-8 bg-[#222357] hover:bg-[#222340] text-white p-4 rounded-full shadow-lg transition-all duration-300 z-50"
       aria-label="Back to top"
     >
       <FaArrowUp className="w-5 h-5" />
