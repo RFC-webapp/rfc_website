@@ -3,7 +3,7 @@ import TitleTag from "@/components/media/TitleTag";
 import Selection from "@/components/media/Selection";
 import { SearchIcon } from "lucide-react";
 import { ServiceIcon } from "@/public/icons";
-import VideoCard from "@/components/media/Youtube";
+import YoutubeCard from "@/components/media/YoutubeCard";
 import GroupChat from "@/components/media/YoutubeChat";
 // import SermonExcerpt from "@/components/media/SermonExcerpt";
 
@@ -38,7 +38,7 @@ export default function page() {
         </div>
 
         <section className="flex flex-col md:flex-row justify-between gap-4">
-          <VideoCard
+          <YoutubeCard
             title="The Blessings of Abraham"
             videoId="BUUFI1p2Svs"
             teacher="Rev. Tunde Amosun"

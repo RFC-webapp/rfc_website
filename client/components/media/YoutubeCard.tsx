@@ -4,13 +4,17 @@ import { useState } from "react";
 import Image from "next/image";
 import { IoPlayOutline } from "react-icons/io5";
 
-interface VideoCardProps {
+interface YoutubeCardProps {
   title: string;
   videoId: string; // YouTube video ID
   teacher: string;
 }
 
-export default function VideoCard({ title, videoId, teacher }: VideoCardProps) {
+export default function YoutubeCard({
+  title,
+  videoId,
+  teacher,
+}: YoutubeCardProps) {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
@@ -52,7 +56,9 @@ export default function VideoCard({ title, videoId, teacher }: VideoCardProps) {
         )}
       </div>
 
-      <p className="mt-3 font-medium text-[16px] font-inter text-[#222357]">Teaching: {teacher}</p>
+      <p className="mt-3 font-medium text-[16px] font-inter text-[#222357]">
+        Teaching: {teacher}
+      </p>
     </div>
   );
 }
