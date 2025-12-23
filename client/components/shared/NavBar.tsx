@@ -7,6 +7,7 @@ import { MdLogin } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { usePathname } from "next/navigation";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
+import { IoCloseSharp } from "react-icons/io5";
 
 export const NavBar = () => {
   const pathname = usePathname();
@@ -98,43 +99,61 @@ export const NavBar = () => {
 
       {/* Mobile Slide-In Menu */}
       <div
-        className={`fixed inset-0 z-50 md:hidden transition-all duration-300 ease-in-out
-          ${menuOpen ? "opacity-100 visible" : "opacity-0 invisible"}
-          backdrop-blur-[2px]`}
+        className={`fixed inset-0 z-50 md:hidden transition-opacity duration-300 ease-in-out
+    ${menuOpen ? "opacity-100 visible" : "opacity-0 invisible"}
+    backdrop-blur-sm`}
         onClick={() => setMenuOpen(false)}
       >
-        <div className="absolute inset-0 bg-black/40"></div>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40 transition-opacity duration-300 ease-in-out"></div>
 
+        {/* Sliding panel */}
         <div
-          className={`absolute top-0 right-0 h-full bg-white text-[#2A1870] shadow-lg p-6 flex flex-col gap-6 transition-transform duration-300 ${
-            menuOpen ? "translate-x-0" : "translate-x-full"
-          } w-full`}
+          className={`absolute top-0 right-0 h-full bg-white text-[#2A1870] shadow-lg p-6 flex flex-col gap-6
+      transform transition-transform duration-500 ease-in-out
+      ${
+        menuOpen ? "translate-x-0" : "translate-x-full"
+      } w-11/12 max-w-sm rounded-l-2xl`}
           onClick={(e) => e.stopPropagation()}
         >
+          {/* Close Button */}
           <button
-            className="text-right font-bold text-lg"
+            className="self-end text-lg font-bold p-2 rounded-full transition-transform duration-200 ease-out 
+             hover:bg-gray-100 hover:scale-110 hover:rotate-6 active:scale-95 active:rotate-0"
             onClick={() => setMenuOpen(false)}
           >
-            ✕
+            <IoCloseSharp />
           </button>
 
           {/* Mobile Links */}
-          <div className="flex flex-col gap-4 text-[16px] mt-4">
-            <Link href="/" onClick={closeMobileMenu}>
+          <nav className="flex flex-col gap-4 mt-4 text-[16px]">
+            <Link
+              href="/"
+              onClick={closeMobileMenu}
+              className="hover:text-blue-700 transition-colors"
+            >
               HOME
             </Link>
-            <Link href="/about" onClick={closeMobileMenu}>
+            <Link
+              href="/about"
+              onClick={closeMobileMenu}
+              className="hover:text-blue-700 transition-colors"
+            >
               ABOUT
             </Link>
-            <Link href="/give" onClick={closeMobileMenu}>
+            <Link
+              href="/give"
+              onClick={closeMobileMenu}
+              className="hover:text-blue-700 transition-colors"
+            >
               GIVE
             </Link>
 
-            {/* MOBILE MEDIA DROPDOWN */}
-            <div>
+            {/* Media Accordion */}
+            <div className="flex flex-col">
               <button
                 onClick={() => setMediaOpen(!mediaOpen)}
-                className="w-full flex items-center justify-between"
+                className="w-full flex items-center justify-between font-medium hover:text-blue-700 transition-colors"
               >
                 <span>MEDIA</span>
                 {mediaOpen ? (
@@ -145,32 +164,56 @@ export const NavBar = () => {
               </button>
 
               {mediaOpen && (
-                <div className="flex flex-col gap-2 mt-2 ml-3 text-[15px]">
-                  <Link href="/media/e-library" onClick={closeMobileMenu}>
+                <div className="flex flex-col gap-2 mt-2 ml-3 text-[15px] animate-fadeIn">
+                  <Link
+                    href="/media/e-library"
+                    onClick={closeMobileMenu}
+                    className="hover:text-blue-700 transition-colors"
+                  >
                     E-Library
                   </Link>
-                  <Link href="/media/sermons" onClick={closeMobileMenu}>
+                  <Link
+                    href="/media/sermons"
+                    onClick={closeMobileMenu}
+                    className="hover:text-blue-700 transition-colors"
+                  >
                     Sermons
                   </Link>
-                  <Link href="/media/livestream" onClick={closeMobileMenu}>
+                  <Link
+                    href="/media/livestream"
+                    onClick={closeMobileMenu}
+                    className="hover:text-blue-700 transition-colors"
+                  >
                     Live Stream
                   </Link>
-                  <Link href="/media/blog" onClick={closeMobileMenu}>
+                  <Link
+                    href="/media/blog"
+                    onClick={closeMobileMenu}
+                    className="hover:text-blue-700 transition-colors"
+                  >
                     Blog
                   </Link>
                 </div>
               )}
             </div>
 
-            <Link href="/contact" onClick={closeMobileMenu}>
+            <Link
+              href="/contact"
+              onClick={closeMobileMenu}
+              className="hover:text-blue-700 transition-colors"
+            >
               CONTACT
             </Link>
-          </div>
+          </nav>
 
           {/* Mobile Login */}
           <div className="flex items-center gap-2 mt-6">
             <MdLogin />
-            <Link href="/login" onClick={closeMobileMenu}>
+            <Link
+              href="/login"
+              onClick={closeMobileMenu}
+              className="hover:text-blue-700 transition-colors"
+            >
               LOGIN
             </Link>
           </div>
