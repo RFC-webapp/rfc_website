@@ -1,5 +1,7 @@
 import { cardData } from '../../../components/media/BlogData'
 
+// import {cardData} from ''
+
 const page = () => {
   return (
     <div>
@@ -135,8 +137,8 @@ const page = () => {
 
        <div className="flex items-center gap-5 flex-wrap my-3 border-b-[0.5px] pb-8">
       {cardData.map((card, index) => (
-        <div key={index} className='rounded-md shadow-sm p-2'>
-          <div className='w-full max-w-[350px]'>
+        <div key={index} className='rounded-md shadow-sm p-2 h-[25em] overflow-hidden '>
+          <div className='w-full max-w-[350px] '>
             <img src={card.image} alt={card.title} className='w-full' />
           </div>
           <h1 className="font-bold my-3 whitespace-pre-line">
