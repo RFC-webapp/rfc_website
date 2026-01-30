@@ -10,28 +10,28 @@ const counsellor = [
     title: "Relationship Team",
     description:
       "Navigating relationships can be beautiful—but also confusing. Our Relationship Team is here to walk with singles who are dating or courting, offering godly counsel, practical wisdom, confidentiality and a safe place to talk through real issues. Whether you're seeking clarity, direction, or personal growth, this team helps you build strong foundations for a Christ-centered relationship. You don’t have to figure it out alone—let us journey with you.",
-    imageSrc: "/images/counselling.png",
+    imageSrc: "/images/relationsip.png",
     reverse: false,
   },
   {
     title: "Marriage Counseling",
     description:
       "Whether you're preparing for marriage or already on the journey, our Marriage Counseling Team is here to support you. We provide Christ-centered guidance for couples who want to build strong foundations, overcome challenges, or simply rekindle their passion and connection. From premarital counseling to ongoing support for married couples, we offer a safe, confidential space where you can talk openly, heal deeply, and grow together. Because every marriage deserves wisdom, support, and a fresh spark of love.",
-    imageSrc: "/images/counselling.png",
+    imageSrc: "/images/marriage.png",
     reverse: true,
   },
   {
     title: "Deacon Stephen",
     description:
       "The Deacon Stephen Team is dedicated to helping individuals overcome addictions and reclaim their lives through Christ. With grace, understanding, and confidentiality, they offer counseling, support, and spiritual guidance to anyone struggling with habits that feel too heavy to carry alone. This team walks beside you—not with judgment, but with hope—helping you find strength, healing, and lasting freedom. You’re not defined by your struggles. There is a way out, and you don’t have to walk it alone.",
-    imageSrc: "/images/counselling.png",
+    imageSrc: "/images/deacon.png",
     reverse: false,
   },
   {
     title: "Believers Court",
     description:
       "“If any of you has a dispute with another, do you dare to take it before the ungodly for judgment instead of before the Lord’s people?” — 1 Corinthians 6:1 Guided by this principle, our Believers Court provides a confidential, Spirit-led environment where issues are resolved with integrity and compassion. Whether the conflict is personal, relational, or within ministry, this team helps restore harmony and uphold the unity of the body of Christ. Because in God’s family, peace isn’t just restored—it’s protected.",
-    imageSrc: "/images/counselling.png",
+    imageSrc: "/images/belivers.png",
     reverse: true,
   },
 ];
@@ -222,13 +222,32 @@ export default function page() {
                 Favor in Relocation Process
               </h5>
               <p className="font-normal text-[16px] text-[#000000 64%]">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam,
-                sed reprehenderit delectus eaque earum adipisci aliquam hic
-                maxime, mollitia nostrum ipsam. Nihil excepturi facere autem,
-                voluptatum incidunt aperiam accusamus assumenda officiis,
-                repudiandae alias consequatur sit placeat, pariatur praesentium
-                recusandae delectus doloribus cumque voluptatibus. Consequuntur,
-                eos vel! Aspernatur placeat ea ex?
+                I want to testify of God's unfailing faithfulness and the
+                fulfillment of His promises in my life. Late last year, God gave
+                me a word: He said He was opening the doors of nations unto me.
+                I held on to that promise and trusted Him completely. Today, by
+                His grace, I am standing in the UK as a living testimony to His
+                covenant-keeping nature. It didn't even take six months for God
+                to fulfill what He had spoken over my life. Throughout that
+                season, every word spoken from the altar was God speaking
+                directly to me. He gave me clear instructions and constant
+                reassurance, reminding me that “ na Him dey run this”— that no
+                man could take the glory for what He was about to do. I remember
+                one particular Sunday when Rev. asked us to worship God
+                undignified, and she said that God was handing out packages to
+                individuals. In that moment, I knew in my spirit that mine had
+                been released. I could sense it! The very next day, I had my CAS
+                interview. It was as though the officer was already welcoming me
+                to the UK before the process was even completed. Just four hours
+                after that interview, I received my CAS letter. But God wasn't
+                done yet! I applied for my visa and received a response exactly
+                26 hours later—without any premium service or expedited
+                processing. It was purely the hand of God at work! This entire
+                journey has shown me that when God carries you, He carries you
+                all the way. He is indeed a covenant-keeping God, and I can
+                testify that His word never returns void. He is faithful to
+                fulfill every promise He makes. To Him alone be all the glory,
+                honor, and praise forevermore! Amen
               </p>
               <p className="font-semibold text-[16px] pt-5 text-[#6B7280]">
                 Busayo
@@ -240,13 +259,29 @@ export default function page() {
                 Favor in Relocation Process
               </h5>
               <p className="font-normal text-[16px] text-[#000000 64%]">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-                vero vel consequatur illo fugiat earum deleniti quis, quas,
-                perspiciatis necessitatibus, facilis veniam delectus voluptate
-                ducimus nemo dolorum deserunt dolorem recusandae. Qui
-                consequatur nihil, hic necessitatibus aut praesentium quidem
-                laudantium quasi accusamus modi velit doloribus molestiae, esse
-                non, enim mollitia corporis.
+                I want to share this testimony because it shows how much God
+                pays attention to us. And how he can remove obstacles that
+                hinder us from fellowshipping with him. On the first day of last
+                year's reboot camp, I came down with a terrible head cold. Those
+                kinds that with every sneeze the headache becomes more painful
+                and throbbing. And usually, once I have this kind of cold, it's
+                really difficult for me to do things because I feel sick. When
+                the first session of RBC started that Thursday evening, I pushed
+                past the headache and sneezing and was rejoicing and kneeling to
+                pray. I managed for some time until my sneezes became more
+                frequent and the headache worsened. At that point I knelt down
+                and bowed my head to ground, still sniffing and sneezing. I said
+                “Father please I don't want to be sick. I want to be able to
+                enjoy my time in your presence.” Immediately, I felt like
+                someone crouched down next to me and said into my ear, “you've
+                have sneezed your last.” Of course I know there are angels all
+                over the place at RBC. So I said “thank you Jesus!” In faith.
+                Brothers and sisters, immediately that happened, I got up and
+                all the urges to sneeze stopped. My nose that was running also
+                dried up within the next 30 mins. By the time I slept and woke
+                up the next day the cold was gone completely. Colds usually take
+                2-4 days to go! But mine happened with same day delivery! Glory
+                to Jesus, our intentional God!
               </p>
               <p className="font-semibold text-[16px] pt-5 text-[#6B7280]">
                 Busayo
@@ -284,7 +319,7 @@ export default function page() {
         </h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 text-center font-roboto place-items-center">
-        {/* <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 text-center font-roboto"> */}
+          {/* <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 text-center font-roboto"> */}
           <TeamCard
             name="Rev. Tunde Amosun"
             role="Head Pastor"

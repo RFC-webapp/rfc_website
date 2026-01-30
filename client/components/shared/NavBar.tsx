@@ -84,10 +84,10 @@ export const NavBar = () => {
 
           {/* Desktop Login */}
           <div className="hidden md:flex items-center space-x-2">
-            <MdLogin className={isActive("/login") ? "text-blue-700" : ""} />
+            {/* <MdLogin className={isActive("/login") ? "text-blue-700" : ""} />
             <Link href="/login" className={desktopLinkClass("/login")}>
               LOGIN
-            </Link>
+            </Link> */}
           </div>
 
           {/* Mobile Hamburger */}
@@ -207,7 +207,7 @@ export const NavBar = () => {
           </nav>
 
           {/* Mobile Login */}
-          <div className="flex items-center gap-2 mt-6">
+          {/* <div className="flex items-center gap-2 mt-6">
             <MdLogin />
             <Link
               href="/login"
@@ -216,7 +216,7 @@ export const NavBar = () => {
             >
               LOGIN
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
