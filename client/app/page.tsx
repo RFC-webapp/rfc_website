@@ -1,45 +1,30 @@
 import ExploreTabs from "@/components/explore/Tabs";
 import Hero from "@/components/main/Hero";
 import Service from "@/components/main/Service";
+// import StatsBar from "@/components/main/StatsBar";
 import CardCarousel from "@/components/main/CardCarousel";
 import More from "@/components/main/More";
 import Blog from "@/components/main/Blog";
+import MediaSection from "@/components/main/MediaSection";
+import AudioPodcast from "@/components/media/AudioPodcast";
 
 export default function Home() {
   return (
-    <div className="">
+    <div>
       <Hero />
       <Service />
-
+      {/* <StatsBar /> */}
       {/* carousel section */}
       <CardCarousel />
-
       {/* You can do More */}
       <More />
-
       {/* blog */}
       <Blog />
-
-      {/* explore */}
-      <div className="container mx-auto my-6">
-        <h1 className="font-normal text-[52px]">Library</h1>
-
-        {/* <Tabs defaultValue="library" className="w-full mt-6">
-          <TabsList>
-            <TabsTrigger value="events">Events</TabsTrigger>
-            <TabsTrigger value="library">Library</TabsTrigger>
-            <TabsTrigger value="livestreams">Livestreams</TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="events">
-            Make changes to your account here.
-          </TabsContent>
-          <TabsContent value="library">Change your password here.</TabsContent>
-          <TabsContent value="livestreams">
-            Change your password here.
-          </TabsContent>
-        </Tabs> */}
-
+      {/* media */}
+      <MediaSection />
+      <AudioPodcast />
+      {/* explore / library */}
+      <div className="container mx-auto my-10 px-4">
         <ExploreTabs />
       </div>
     </div>

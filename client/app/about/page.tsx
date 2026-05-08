@@ -1,446 +1,418 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import CardCarousel from "@/components/main/CardCarousel";
+import TestimonyCarousel from "@/components/main/TestimonyCarousel";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { FaFacebook, FaTwitter, FaLinkedin, FaBible } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaLinkedin,
+  FaBible,
+} from "react-icons/fa";
 
-export default function page() {
+function useScrollReveal() {
+  const [visibleSections, setVisibleSections] = useState<number[]>([]);
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("[data-reveal]");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = Number(entry.target.getAttribute("data-id"));
+
+          if (entry.isIntersecting) {
+            setVisibleSections((prev) =>
+              prev.includes(id) ? prev : [...prev, id]
+            );
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
+  return visibleSections;
+}
+
+export default function Page() {
+  const visibleSections = useScrollReveal();
+
   return (
-    <div className="mt-14 mb-12">
+    <div className="mt-14 mb-12 overflow-hidden">
       <section>
-        <div className="relative w-full h-[50vh]">
-          <Image
-            priority
-            className="w-full h-full object-cover"
-            src="/images/home-bg.jpg"
-            alt="home background"
-            width={1439}
-            height={883}
-          />
+        <div className="relative w-full h-[70vh] overflow-hidden">
+          <div className="absolute inset-0 scale-110">
+            <Image
+              priority
+              className="w-full h-full object-cover"
+              src="/images/home-bg.jpg"
+              alt="home background"
+              width={1439}
+              height={883}
+            />
+          </div>
 
-          {/* Overlay content */}
-          <div
-            className="absolute inset-0 
-                 flex flex-col justify-center items-center
-                 text-center text-white bg-black/40"
-          >
-            <h3 className="font-medium text-[16px]">ABOUT US</h3>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70" />
 
-            <h1 className="text-[24px] md:text-[64px] font-bold mb-2">
-              Rock Foundation Church
+          <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
+            <h3 className="font-medium text-[16px] tracking-[0.3em] uppercase">
+              ABOUT US
+            </h3>
+
+            <h1 className="text-[40px] md:text-[72px] font-bold mb-4 leading-tight">
+              Rock Foundation
+              <br />
+              <span className="text-[#F5C842]">Church</span>
             </h1>
 
-            <h5 className="text-[12px] md:text-[18px]">
+            <div className="w-16 h-[2px] bg-[#F5C842] mb-5" />
+
+            <h5 className="text-[14px] md:text-[20px] tracking-[0.2em] uppercase text-white/90">
               Making Mature Followers Of Christ
             </h5>
           </div>
         </div>
       </section>
 
-      <section className="w-full hidden md:flex justify-center items-center my-10">
-        <div className="flex flex-col md:flex-row gap-6 items-center">
-          <div className="w-full md:w-[280px] h-[380px] rounded-3xl overflow-hidden flex justify-center">
+      <section
+        data-reveal
+        data-id="1"
+        className="w-full hidden md:flex justify-center items-center my-20 overflow-hidden"
+      >
+        <div
+          className="flex flex-col md:flex-row gap-6 items-center transition-all duration-1000"
+          style={{
+            opacity: visibleSections.includes(1) ? 1 : 0,
+            transform: visibleSections.includes(1)
+              ? "translateY(0)"
+              : "translateY(60px)",
+          }}
+        >
+          <div className="w-full md:w-[280px] h-[380px] rounded-3xl overflow-hidden">
             <Image
               src="/images/about-1.png"
               alt="About Us"
               width={280}
               height={380}
-              className="object-contain" 
+              className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
             />
           </div>
-          <div className="w-full md:w-[340px] h-[460px] rounded-3xl overflow-hidden flex justify-center">
+
+          <div className="w-full md:w-[340px] h-[460px] rounded-3xl overflow-hidden">
             <Image
               src="/images/about-2.png"
               alt="About Us"
               width={340}
               height={460}
-              className="object-contain"
+              className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
             />
           </div>
-          <div className="w-full md:w-[280px] h-[380px] rounded-3xl overflow-hidden flex justify-center">
+
+          <div className="w-full md:w-[280px] h-[380px] rounded-3xl overflow-hidden">
             <Image
               src="/images/about-3.png"
               alt="About Us"
               width={280}
               height={380}
-              className="object-contain"
+              className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
             />
           </div>
         </div>
       </section>
 
-      <div
-      // className="w-full h-full object-cover"
-      ></div>
+      <section
+        data-reveal
+        data-id="2"
+        className="flex flex-col md:flex-row justify-center items-center gap-10 my-20 px-5"
+      >
+        <div
+          className="w-full md:w-[372px] text-center md:text-left transition-all duration-1000"
+          style={{
+            opacity: visibleSections.includes(2) ? 1 : 0,
+            transform: visibleSections.includes(2)
+              ? "translateX(0)"
+              : "translateX(-50px)",
+          }}
+        >
+          <h5 className="font-normal text-[16px] text-[#222357] uppercase tracking-[0.2em]">
+            OUR MISSION & VISION
+          </h5>
 
-      <section className="flex flex-col md:flex-row justify-center items-center gap-10 my-10 px-5">
-        <div className="w-full md:w-[372px] text-center md:text-left">
-          <h5 className="font-normal text-[16px]">OUR MISSION & VISION</h5>
-          <h2 className="font-semibold text-[32px]">
-            from freedom to fruitfulness
+          <h2 className="font-semibold text-[32px] md:text-[42px] leading-tight mt-2 mb-5">
+            From Freedom To Fruitfulness
           </h2>
-          <p className="font-normal text-[16px]">
+
+          <p className="font-normal text-[16px] text-black/70 leading-8">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum.
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
 
-        <div className="w-full md:w-[372px] text-center md:text-left">
-          <h5 className="font-normal text-[16px]">WHAT WE DO</h5>
-          <h2 className="font-semibold text-[32px]">
-            making matured followers of christ
+        <div
+          className="w-full md:w-[372px] text-center md:text-left transition-all duration-1000"
+          style={{
+            opacity: visibleSections.includes(2) ? 1 : 0,
+            transform: visibleSections.includes(2)
+              ? "translateX(0)"
+              : "translateX(50px)",
+          }}
+        >
+          <h5 className="font-normal text-[16px] text-[#222357] uppercase tracking-[0.2em]">
+            WHAT WE DO
+          </h5>
+
+          <h2 className="font-semibold text-[32px] md:text-[42px] leading-tight mt-2 mb-5">
+            Making Mature Followers Of Christ
           </h2>
-          <p className="font-normal text-[16px]">
+
+          <p className="font-normal text-[16px] text-black/70 leading-8">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum.
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
       </section>
 
-      <section className="mx-auto container text-center my-15 px-4">
-        <h1 className="font-bold text-[30px] md:text-[48px]">OUR SERVICE</h1>
-        <p className="text-[16px] font-normal px-2 md:px-0 md:w-5/8 mx-auto my-6">
+      <section className="mx-auto container text-center my-24 px-4">
+        <h1 className="font-bold text-[30px] md:text-[48px]">
+          OUR SERVICE
+        </h1>
+
+        <p className="text-[16px] font-normal px-2 md:px-0 md:w-5/8 mx-auto my-6 text-black/70 leading-8">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in vo.
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
 
         <CardCarousel />
       </section>
 
-      <section className="w-full relative mb-15">
+      <section className="w-full relative mb-20">
         <Image
           src="/images/about-4.png"
           alt="About Us"
-          width={288}
-          height={384}
+          width={1440}
+          height={700}
           className="w-full h-auto object-cover"
         />
       </section>
 
-      <section className="bg-[#222357] text-white mb-15">
+      <section className="bg-[#222357] text-white mb-20">
         <div className="flex flex-col md:flex-row justify-center gap-x-[50px] mx-auto container py-[60px] items-center px-4">
-          <div className="w-full md:w-1/2 relative h-[300px] md:h-[500px]">
+          <div className="w-full md:w-1/2 relative h-[300px] md:h-[500px] rounded-2xl overflow-hidden">
             <Image
               src="/images/about-4.png"
               alt="About Us"
               fill
-              style={{ objectFit: "cover" }}
+              className="object-cover"
             />
           </div>
 
           <div className="w-full md:w-1/2 font-poppins mt-8 md:mt-0">
-            <h4 className="font-bold text-[24px] mb-4">Our lead pastor</h4>
-            <p className="font-normal text-[16px] mb-4">
+            <h4 className="font-bold text-[24px] mb-4 uppercase tracking-[0.2em] text-[#F5C842]">
+              Our Lead Pastor
+            </h4>
+
+            <p className="font-normal text-[16px] mb-4 leading-8 text-white/80">
               Rev Tunde Amosun is the visionary founder and Lead Pastor of Rock
-              Foundation Church (RFC), a church where we focus on just three
-              things: we come to Jesus, listen to His word and do them. He is
-              renowned for his dynamic preaching, teaching, and support for the
-              gospel. His mission is to help people discover and confidently
-              live out their God-given purpose through the transformative power
-              of the Gospel.
+              Foundation Church (RFC).
             </p>
-            <p className="font-normal text-[16px] mb-4">
-              Rev Tunde Amosun ministry began during his time as an
-              undergraduate at University of Lagos in 198X, when he was a final
-              year medicine student. He was a traveling minister before Rock
-              Foundation was founded. RFC is a global church with a strong
-              emphasis on teaching, missions, and empowering believers to fully
-              express their faith in all aspects of life.
+
+            <p className="font-normal text-[16px] mb-4 leading-8 text-white/80">
+              His mission is to help people discover and confidently live out
+              their God-given purpose through the transformative power of the
+              Gospel.
             </p>
-            <p className="font-normal text-[16px] mb-4">
-              Rev Tunde Amosun ministry began during his time as an
-              undergraduate at University of Lagos in 198X, when he was a final
-              year medicine student. He was a traveling minister before Rock
-              Foundation was founded. RFC is a global church with a strong
-              emphasis on teaching, missions, and empowering believers to fully
-              express their faith in all aspects of life.
-            </p>
-            <Button>Read More</Button>
+
+            <Button className="bg-[#F5C842] hover:bg-[#e8b930] text-black font-semibold">
+              Read More
+            </Button>
           </div>
         </div>
       </section>
 
-      <section className="text-center shadow-lg my-15 py-10 px-4">
+      <section className="text-center py-16 px-4">
         <div className="container mx-auto">
           <div className="flex justify-center">
-            <div className="flex items-center gap-2 border rounded-lg px-3 py-1 bg-white">
+            <div className="flex items-center gap-2 border rounded-lg px-3 py-1">
               <FaBible className="text-black/60" />
+
               <span className="font-bold text-[10px] text-black/60">
                 MEMBER STORIES
               </span>
             </div>
           </div>
 
-          <h1 className="text-[28px] md:text-[36px] font-black">
+          <h1 className="text-[28px] md:text-[48px] font-black mt-4">
             MY RFC EXPERIENCE
           </h1>
+
           <p className="text-[#00000080] text-[16px] md:text-[20px] font-normal pb-10">
             Read Testimonies From Our Members
           </p>
 
-          <div className="flex flex-col md:flex-row justify-between gap-10 text-left">
-            <div className="">
-              <h5 className="text-[#111827] font-semibold text-[18px] pb-3">
-                Favor in Relocation Process
-              </h5>
-              <p className="font-normal text-[16px] text-[#000000 64%]">
-                I want to testify of God's unfailing faithfulness and the
-                fulfillment of His promises in my life. Late last year, God gave
-                me a word: He said He was opening the doors of nations unto me.
-                I held on to that promise and trusted Him completely. Today, by
-                His grace, I am standing in the UK as a living testimony to His
-                covenant-keeping nature. It didn't even take six months for God
-                to fulfill what He had spoken over my life. Throughout that
-                season, every word spoken from the altar was God speaking
-                directly to me. He gave me clear instructions and constant
-                reassurance, reminding me that “ na Him dey run this”— that no
-                man could take the glory for what He was about to do. I remember
-                one particular Sunday when Rev. asked us to worship God
-                undignified, and she said that God was handing out packages to
-                individuals. In that moment, I knew in my spirit that mine had
-                been released. I could sense it! The very next day, I had my CAS
-                interview. It was as though the officer was already welcoming me
-                to the UK before the process was even completed. Just four hours
-                after that interview, I received my CAS letter. But God wasn't
-                done yet! I applied for my visa and received a response exactly
-                26 hours later—without any premium service or expedited
-                processing. It was purely the hand of God at work! This entire
-                journey has shown me that when God carries you, He carries you
-                all the way. He is indeed a covenant-keeping God, and I can
-                testify that His word never returns void. He is faithful to
-                fulfill every promise He makes. To Him alone be all the glory,
-                honor, and praise forevermore! Amen
-              </p>
-              <p className="font-semibold text-[16px] pt-5 text-[#6B7280]">
-                Busayo
-              </p>
-            </div>
-
-            <div className="text-left">
-              <h5 className="text-[#111827] font-semibold text-[18px] pb-3">
-                Favor in Relocation Process
-              </h5>
-              <p className="font-normal text-[16px] text-[#000000 64%]">
-                I want to testify of God's unfailing faithfulness and the
-                fulfillment of His promises in my life. Late last year, God gave
-                me a word: He said He was opening the doors of nations unto me.
-                I held on to that promise and trusted Him completely. Today, by
-                His grace, I am standing in the UK as a living testimony to His
-                covenant-keeping nature. It didn't even take six months for God
-                to fulfill what He had spoken over my life. Throughout that
-                season, every word spoken from the altar was God speaking
-                directly to me. He gave me clear instructions and constant
-                reassurance, reminding me that “ na Him dey run this”— that no
-                man could take the glory for what He was about to do. I remember
-                one particular Sunday when Rev. asked us to worship God
-                undignified, and she said that God was handing out packages to
-                individuals. In that moment, I knew in my spirit that mine had
-                been released. I could sense it! The very next day, I had my CAS
-                interview. It was as though the officer was already welcoming me
-                to the UK before the process was even completed. Just four hours
-                after that interview, I received my CAS letter. But God wasn't
-                done yet! I applied for my visa and received a response exactly
-                26 hours later—without any premium service or expedited
-                processing. It was purely the hand of God at work! This entire
-                journey has shown me that when God carries you, He carries you
-                all the way. He is indeed a covenant-keeping God, and I can
-                testify that His word never returns void. He is faithful to
-                fulfill every promise He makes. To Him alone be all the glory,
-                honor, and praise forevermore! Amen
-              </p>
-              <p className="font-semibold text-[16px] pt-5 text-[#6B7280]">
-                Busayo
-              </p>
-            </div>
-          </div>
+          <TestimonyCarousel />
         </div>
       </section>
 
-      <section className="mx-auto container px-4">
-        <h3 className="text-center text-black/60 text-[16px] rounded-lg bg-black/4 px-4 py-1 w-fit mx-auto my-0">
+      <section className="mx-auto container px-4 py-24 overflow-hidden">
+        <div
+          className="text-center mb-20 transition-all duration-1000"
+          style={{
+            opacity: visibleSections.includes(7) ? 1 : 0,
+            transform: visibleSections.includes(7)
+              ? "translateY(0)"
+              : "translateY(50px)",
+          }}
+          data-reveal
+          data-id="7"
+        >
+          <h3 className="text-center text-black/60 text-[16px] rounded-lg bg-black/4 px-4 py-1 w-fit mx-auto">
           Need GODLY Counseling?
         </h3>
-        <h1 className="font bold font-poppins text-[32px] md:text-[48px] pb-14 text-center">
-          See our counselling teams
-        </h1>
 
-        <div className="flex flex-col md:flex-row justify-around items-center gap-x-2 mb-10">
-          <Image
-            src="/images/counselling.png"
-            alt=""
-            width={500}
-            height={320}
-            className="w-full md:w-[500px] h-auto object-cover order-first md:order-last"
-            quality={100}
-          />
-
-          <div className="w-full md:w-1/2 order-last md:order-first">
-            <h1 className="font-bold text-[32px] font-poppins">
-              Relationship team
-            </h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit.
-            </p>
-          </div>
+          <h1 className="font-bold font-poppins text-[34px] md:text-[56px] mt-5 leading-tight">
+            See Our Counselling Teams
+          </h1>
         </div>
 
-        <div className="flex flex-col-reverse md:flex-row justify-around items-center gap-x-2 mb-10">
-          <Image
-            src="/images/counselling.png"
-            alt=""
-            width={500}
-            height={320}
-            className="w-full md:w-[500px] h-auto object-cover"
-            quality={100}
-          />
-          <div className="w-full md:w-1/2">
-            <h1 className="font-bold text-[32px] font-poppins">
-              Relationship team
-            </h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit.
-            </p>
-          </div>
-        </div>
+        {[
+          {
+            title: "Relationship Team",
+            image: "/images/counseling-1.jpg",
+          },
+          {
+            title: "Marriage Counseling",
+            image: "/images/counseling-2.png",
+          },
+          {
+            title: "Youth Mentorship",
+            image: "/images/counseling-4.jpg",
+          },
+          {
+            title: "Prayer Support Team",
+            image: "/images/counseling-3.jpg",
+          },
+        ].map((item, index) => {
+          const id = index + 20;
 
-        <div className="flex flex-col md:flex-row justify-around items-center gap-x-2 mb-10">
-          <Image
-            src="/images/counselling.png"
-            alt=""
-            width={500}
-            height={320}
-            className="w-full md:w-[500px] h-auto object-cover order-first md:order-last"
-            quality={100}
-          />
+          return (
+            <div
+              key={index}
+              data-reveal
+              data-id={id}
+              className={`flex flex-col ${index % 2 === 0
+                  ? "md:flex-row"
+                  : "md:flex-row-reverse"
+                } items-center justify-between gap-10 md:gap-16 mb-28`}
+            >
+              {/* TEXT */}
+              <div
+                className="w-full md:w-1/2 transition-all duration-1000"
+                style={{
+                  opacity: visibleSections.includes(id) ? 1 : 0,
+                  transform: visibleSections.includes(id)
+                    ? "translateX(0)"
+                    : index % 2 === 0
+                      ? "translateX(-80px)"
+                      : "translateX(80px)",
+                }}
+              >
+                <span className="uppercase tracking-[0.3em] text-[#222357] text-[12px] font-semibold">
+                  Counseling Unit
+                </span>
 
-          <div className="w-full md:w-1/2 order-last md:order-first">
-            <h1 className="font-bold text-[32px] font-poppins">
-              Relationship team
-            </h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit.
-            </p>
-          </div>
-        </div>
+                <h1 className="font-bold text-[30px] md:text-[42px] font-poppins mt-3 mb-5 leading-tight">
+                  {item.title}
+                </h1>
 
-        <div className="flex flex-col-reverse md:flex-row justify-around items-center gap-x-2 mb-10">
-          <Image
-            src="/images/counselling.png"
-            alt=""
-            width={500}
-            height={320}
-            className="w-full md:w-[500px] h-auto object-cover"
-            quality={100}
-          />
-          <div className="w-full md:w-1/2">
-            <h1 className="font-bold text-[32px] font-poppins">
-              Relationship team
-            </h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit.
-            </p>
-          </div>
-        </div>
+                <p className="leading-8 text-black/70 text-[16px]">
+                  Our counseling teams are committed to helping individuals and
+                  families grow spiritually, emotionally, and mentally through
+                  biblical guidance, prayer, mentorship, and practical support.
+                  Whether you are navigating relationships, personal struggles,
+                  purpose, or spiritual growth, our team is here to walk with you
+                  every step of the way.
+                </p>
+
+                <Button className="mt-7 bg-[#222357] hover:bg-[#1b1c49] text-white px-8">
+                  Learn More
+                </Button>
+              </div>
+
+              {/* IMAGE */}
+              <div
+                className="w-full md:w-1/2 transition-all duration-1000"
+                style={{
+                  opacity: visibleSections.includes(id) ? 1 : 0,
+                  transform: visibleSections.includes(id)
+                    ? "translateX(0)"
+                    : index % 2 === 0
+                      ? "translateX(80px)"
+                      : "translateX(-80px)",
+                  transitionDelay: "200ms",
+                }}
+              >
+                <div className="relative overflow-hidden group shadow-xl">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={700}
+                    height={450}
+                    quality={100}
+                    className="w-full h-[280px] md:h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80" />
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </section>
-
       <section className="mx-auto container my-25 text-center px-4">
-        <h3 className="font-normal text-[16px] font-poppins">PREACHING TEAM</h3>
-        <h1 className="font-bold font-poppins text-[32px] md:text-[48px] pb-8">
-          Meet our Inspirational team
+        <h3 className="font-normal text-[16px] font-poppins uppercase tracking-[0.2em] text-[#222357]">
+          PREACHING TEAM
+        </h3>
+
+        <h1 className="font-bold font-poppins text-[32px] md:text-[48px] pb-12">
+          Meet Our Inspirational Team
         </h1>
 
-        <div className="md:flex justify-center gap-x-10 text-center font-roboto">
-          <div className="w-[302px] h-[366px] bg-white shadow-2xl flex flex-col justify-center items-center text-center">
-            <Image
-              src="/images/home.png"
-              alt=""
-              width={152}
-              height={152}
-              className="rounded-full mb-10"
-            />
-            <h1 className="font-bold text-[16px]">Rev. Tunde Amosun</h1>
-            <p className="text-black/70 pt-2">Head Pastor, Church</p>
-            <div className="flex justify-center pt-2 gap-x-5.5">
-              <FaFacebook />
-              <FaTwitter />
-              <FaLinkedin />
-            </div>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 place-items-center font-roboto">
+          {[1, 2, 3, 4].map((item) => (
+            <div
+              key={item}
+              className="w-full max-w-[302px] h-[366px] bg-white shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col justify-center items-center text-center rounded-2xl"
+            >
+              <Image
+                src="/images/home.jfif"
+                alt=""
+                width={152}
+                height={152}
+                className="rounded-full mb-10 object-cover"
+              />
 
-          <div className="w-[302px] h-[366px] bg-white shadow-2xl flex flex-col justify-center items-center text-center">
-            <Image
-              src="/images/home.png"
-              alt=""
-              width={152}
-              height={152}
-              className="rounded-full mb-10"
-            />
-            <h1 className="font-bold text-[16px]">Rev. Tunde Amosun</h1>
-            <p className="text-black/70 pt-2">Head Pastor, Church</p>
-            <div className="flex justify-center pt-2 gap-x-5.5">
-              <FaFacebook />
-              <FaTwitter />
-              <FaLinkedin />
-            </div>
-          </div>
+              <h1 className="font-bold text-[16px]">
+                Rev. Tunde Amosun
+              </h1>
 
-          <div className="w-[302px] h-[366px] bg-white shadow-2xl flex flex-col justify-center items-center text-center">
-            <Image
-              src="/images/home.png"
-              alt=""
-              width={152}
-              height={152}
-              className="rounded-full mb-10"
-            />
-            <h1 className="font-bold text-[16px]">Rev. Tunde Amosun</h1>
-            <p className="text-black/70 pt-2">Head Pastor, Church</p>
-            <div className="flex justify-center pt-2 gap-x-5.5">
-              <FaFacebook />
-              <FaTwitter />
-              <FaLinkedin />
-            </div>
-          </div>
+              <p className="text-black/70 pt-2">
+                Head Pastor, Church
+              </p>
 
-          <div className="w-[302px] h-[366px] bg-white shadow-2xl flex flex-col justify-center items-center text-center">
-            <Image
-              src="/images/home.png"
-              alt=""
-              width={152}
-              height={152}
-              className="rounded-full mb-10"
-            />
-            <h1 className="font-bold text-[16px]">Rev. Tunde Amosun</h1>
-            <p className="text-black/70 pt-2">Head Pastor, Church</p>
-            <div className="flex justify-center pt-2 gap-x-5.5">
-              <FaFacebook />
-              <FaTwitter />
-              <FaLinkedin />
+              <div className="flex justify-center pt-4 gap-x-5">
+                <FaFacebook />
+                <FaTwitter />
+                <FaLinkedin />
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </section>
     </div>
