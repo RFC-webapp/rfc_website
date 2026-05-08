@@ -1,29 +1,32 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
-interface ElibraryCardProps {
+interface MiniBlogrops {
   image?: string;
   title: string;
   excerpt: string;
   date: string;
 }
 
-export function ElibraryCard({ image, title, excerpt, date }: ElibraryCardProps) {
+export function MiniBlog({ image, title, excerpt, date }: MiniBlogrops) {
   return (
-    <div className="bg-white w-full aspect-420/451 rounded-xl shadow-sm border hover:shadow-md transition-all duration-300 overflow-hidden">
+    <div
+      className="bg-white w-full aspect-420/451 rounded-xl shadow-sm border 
+                      hover:shadow-md transition-all duration-300 overflow-hidden"
+    >
       {/* Blog Image */}
-      {/* {image && (
+      {image && (
         <div className="w-full h-56 relative">
-          <Image src="/images/rfc-1.png" alt={title} fill className="object-cover" />
+          <Image src={image} alt={title} fill className="object-cover" />
         </div>
-      )} */}
+      )}
 
       {/* Content */}
       <div className="p-5 text-[#000000] text-left space-y-3">
-        <h3 className="text-[20px] text-center  font-bold leading-tight">
+        <h3 className="text-[20px] text-center font-bold leading-tight">
           {title}
         </h3>
-        <p className=" text-sm leading-relaxed">{excerpt}</p>
+        <p className="text-sm leading-relaxed">{excerpt}</p>
       </div>
 
       <div className="px-5 flex justify-between items-center">

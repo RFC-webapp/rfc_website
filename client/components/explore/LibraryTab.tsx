@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import LibraryCard from "./LibraryCard";
+import { DownloadIcon } from "lucide-react";
+import MediaCard from "../media/MediaCard";
 
 function useScrollReveal(threshold = 0.1) {
   const ref = useRef<HTMLDivElement>(null);
@@ -81,17 +83,22 @@ const LibraryTab = () => {
         </button>
       </div>
 
-      {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {books.map((book, index) => (
-          <LibraryCard
+          <MediaCard
             key={index}
-            index={index}
-            visible={visible}
             image={book.image}
             title={book.title}
             author={book.author}
             description={book.description}
+            buttons={[
+              {
+                label: "Download",
+                icon: <DownloadIcon />,
+                variant: "ghost",
+                className: "bg-[#222357] text-white",
+              },
+            ]}
           />
         ))}
       </div>
