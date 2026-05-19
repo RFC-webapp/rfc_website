@@ -2,42 +2,57 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { IoPlayOutline } from "react-icons/io5";
+import { IoPlay } from "react-icons/io5";
 
 interface VideoCardProps {
   title: string;
-  videoId: string; // YouTube video ID
+  videoId: string;
   teacher: string;
 }
 
-export default function VideoCard({ title, videoId, teacher }: VideoCardProps) {
+export default function VideoCard({
+  title,
+  videoId,
+  teacher,
+}: VideoCardProps) {
   const [isPlaying, setIsPlaying] = useState(false);
 
-  return (
-    <div className="bg-[#EEF0F3] rounded-xl p-4 w-full max-w-4xl">
-      <h3 className="text-[#222357] font-medium text-[16px] my-2 uppercase font-inter">
-        {title}
-      </h3>
+  const thumbnail = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
-      {/* Video Container */}
-      <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-300">
+  return (
+    <div className="bg-white rounded-2xl border border-[#EAECF0] shadow-sm overflow-hidden">
+      <div className="p-4">
+        <h3 className="text-[#222357] text-lg font-semibold">
+          {title}
+        </h3>
+
+        <p className="text-sm text-[#667085] mt-1">
+          Teaching: {teacher}
+        </p>
+      </div>
+
+      <div className="relative aspect-video bg-black">
         {!isPlaying ? (
           <>
-            {/* Thumbnail */}
             <Image
-              src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+              src={thumbnail}
               alt={title}
               fill
+              unoptimized
               className="object-cover"
+              onError={(e) => {
+                e.currentTarget.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+              }}
             />
 
-            {/* Play Button */}
+            <div className="absolute inset-0 bg-black/20" />
+
             <button
               onClick={() => setIsPlaying(true)}
               className="absolute inset-0 flex items-center justify-center"
             >
-              <div className="w-16 h-16 bg-[#1E1E50] rounded-full flex items-center justify-center shadow-lg">
-                <IoPlayOutline color="white" size={30} />
+              <div className="w-20 h-20 rounded-full bg-red-600 flex items-center justify-center shadow-2xl">
+                <IoPlay size={38} color="white" />
               </div>
             </button>
           </>
@@ -46,13 +61,34 @@ export default function VideoCard({ title, videoId, teacher }: VideoCardProps) {
             className="w-full h-full"
             src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
             title={title}
-            allow="autoplay; encrypted-media"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
         )}
       </div>
 
-      <p className="mt-3 font-medium text-[16px] font-inter text-[#222357]">Teaching: {teacher}</p>
+      <div className="flex items-center justify-between p-4">
+        <a
+          href={`https://www.youtube.com/watch?v=${videoId}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-[#FF0000] text-white px-4 py-2 rounded-lg text-sm font-medium"
+        >
+          Watch on YouTube
+        </a>
+
+        <button
+          onClick={() => {
+            navigator.share({
+              title,
+              url: `https://www.youtube.com/watch?v=${videoId}`,
+            });
+          }}
+          className="text-sm text-[#222357] font-medium"
+        >
+          Share
+        </button>
+      </div>
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import ExploreTabs from "@/components/explore/Tabs";
 import Hero from "@/components/main/Hero";
 import Service from "@/components/main/Service";
-// import StatsBar from "@/components/main/StatsBar";
 import CardCarousel from "@/components/main/CardCarousel";
 import More from "@/components/main/More";
 import Blog from "@/components/main/Blog";
@@ -10,10 +9,9 @@ import AudioPodcast from "@/components/media/AudioPodcast";
 
 export default function Home() {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Hero />
       <Service />
-      {/* <StatsBar /> */}
       {/* carousel section */}
       <CardCarousel />
       {/* You can do More */}

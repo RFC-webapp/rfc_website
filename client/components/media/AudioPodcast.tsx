@@ -67,7 +67,7 @@ export default function AudioPodcast() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row">
         {/* LEFT — singer image */}
         <div
-          className="relative w-full md:w-[300px] shrink-0 h-[280px] md:h-auto overflow-hidden transition-all duration-1000 ease-out"
+          className="relative w-full md:w-[400px] shrink-0 h-[280px] md:h-auto overflow-hidden transition-all duration-1000 ease-out"
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? "translateX(0)" : "translateX(-40px)",

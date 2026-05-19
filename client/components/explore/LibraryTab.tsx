@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import LibraryCard from "./LibraryCard";
 import { DownloadIcon } from "lucide-react";
 import MediaCard from "../media/MediaCard";
+import Link from "next/link";
 
 function useScrollReveal(threshold = 0.1) {
   const ref = useRef<HTMLDivElement>(null);
@@ -55,7 +55,6 @@ const LibraryTab = () => {
 
   return (
     <div ref={ref}>
-      {/* Header */}
       <div
         className="flex justify-between items-center pb-5 transition-all duration-700 ease-out"
         style={{
@@ -71,16 +70,20 @@ const LibraryTab = () => {
             Recommended Books
           </h3>
         </div>
-        <button className="text-[12px] font-semibold text-[#00913D] hover:text-[#007a33] transition-colors duration-200 flex items-center gap-1 group">
+
+        <Link
+          href="/media/e-library"
+          className="text-[12px] font-semibold text-[#00913D] hover:text-[#007a33] transition-colors duration-200 flex items-center gap-1 group"
+        >
           GO TO E-LIBRARY
           <svg
             width="12" height="12" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" strokeWidth="2.5"
             className="transition-transform duration-200 group-hover:translate-x-1"
           >
-            <path d="M5 12h14M12 5l7 7-7 7"/>
+            <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
-        </button>
+        </Link>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -91,6 +94,7 @@ const LibraryTab = () => {
             title={book.title}
             author={book.author}
             description={book.description}
+            variant="book"
             buttons={[
               {
                 label: "Download",
@@ -99,12 +103,10 @@ const LibraryTab = () => {
                 className: "bg-[#222357] text-white",
               },
             ]}
+            youtubeUrl=""
           />
         ))}
       </div>
-
-      {/* Empty state — shown when all images fail */}
-      {/* This is handled per-card via the onError fallback in LibraryCard */}
     </div>
   );
 };

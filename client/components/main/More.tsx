@@ -70,6 +70,9 @@ export default function More() {
           transform: headVisible ? "translateY(0)" : "translateY(40px)",
         }}
       >
+        <span className="text-[11px] tracking-[0.3em] uppercase text-[#F5C842] font-semibold">
+          RFC
+        </span>
         <h3 className="font-bold text-[32px] md:text-[56px] mt-2 leading-tight">
           YOU CAN DO{" "}
           <span className="text-[#F5C842]">MORE</span>

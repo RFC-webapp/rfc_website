@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { ElibraryCard } from "../media/ElibraryCard";
 import { Button } from "../ui/button";
+import Link from "next/dist/client/link";
 
 function useScrollReveal(threshold = 0.1) {
   const ref = useRef<HTMLDivElement>(null);
@@ -21,6 +21,37 @@ function useScrollReveal(threshold = 0.1) {
     return () => observer.disconnect();
   }, [threshold]);
   return { ref, visible };
+}
+
+function BlogCard({
+  image,
+  title,
+  excerpt,
+  date,
+}: {
+  image: string;
+  title: string;
+  excerpt: string;
+  date: string;
+}) {
+  return (
+    <div className="bg-white rounded-2xl aspect-[420/451] shadow-sm border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-xl">
+      <div className="relative w-full max-w-[520px] h-[280px]">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover rounded-lg"
+          sizes="(max-width: 768px) 100vw, 520px"
+        />
+      </div>
+      <div className="p-6">
+        <p className="text-sm text-[#F5C842] font-semibold mb-2">{date}</p>
+        <h2 className="font-bold text-xl text-[#161722] mb-3">{title}</h2>
+        <p className="text-sm text-[#4B4B6F] leading-relaxed">{excerpt}</p>
+      </div>
+    </div>
+  );
 }
 
 export default function Blog() {
@@ -71,8 +102,8 @@ export default function Blog() {
             transitionDelay: "0ms",
           }}
         >
-          <ElibraryCard
-            image="/images/blog-1.jpg"
+          <BlogCard
+            image="/images/Rheader.jpg"
             title="Understanding Faith in Today's World"
             excerpt="Explore how biblical principles shape our daily walk and spiritual growth."
             date="Nov 18, 2025"
@@ -88,8 +119,8 @@ export default function Blog() {
             transitionDelay: "150ms",
           }}
         >
-          <ElibraryCard
-            image="/images/blog-2.jpg"
+          <BlogCard
+            image="/images/Rheader.jpg"
             title="How to Strengthen Your Prayer Life"
             excerpt="Prayer is a lifestyle. Here are practical steps you can take starting today."
             date="Nov 15, 2025"
@@ -116,13 +147,15 @@ export default function Blog() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
             <div className="absolute bottom-6 left-0 right-0 flex justify-center">
-              <Button
-                variant="default"
-                size="lg"
-                className="hover:bg-[#e8b930] text-black font-semibold border-0 shadow-lg transition-all duration-300 hover:scale-105"
-              >
+              <Link href="/media/blog">
+                <Button
+                  variant="default"
+                  size="lg"
+                  className="hover:bg-[#e8b930] text-black font-semibold border-0 shadow-lg transition-all duration-300 hover:scale-105"
+                >
                 VISIT OUR BLOG
               </Button>
+              </Link>
             </div>
           </div>
         </div>

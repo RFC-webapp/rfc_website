@@ -36,7 +36,7 @@ const LibraryCard = ({
       }}
     >
       <div className="flex gap-4">
-        {/* LEFT — book cover: taller + object-contain so full cover is visible */}
+        {/* LEFT - book cover: taller + object-contain so full cover is visible */}
         <div className="w-[38%] h-48 relative rounded-xl overflow-hidden shrink-0 bg-gray-50 border border-gray-100">
           {!imgError ? (
             <Image
@@ -68,7 +68,7 @@ const LibraryCard = ({
           )}
         </div>
 
-        {/* RIGHT — content */}
+        {/* RIGHT - content */}
         <div className="flex-1 flex flex-col justify-between text-left min-w-0">
           <div>
             <h3 className="text-[13px] font-bold text-[#222357] leading-snug line-clamp-2">

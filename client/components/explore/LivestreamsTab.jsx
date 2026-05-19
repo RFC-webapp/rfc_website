@@ -2,18 +2,20 @@ import Image from "next/image";
 
 const LivestreamsTab = () => {
   return (
-    <div>
-      <div className="flex justify-evenly">
-        <Image
-          src="/images/livestream.png"
-          alt="Livestream"
-          width={406}
-          height={568}
-          className=""
-        />
+    <div className="w-full">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 px-4">
+        {/* Poster image — hidden on small screens to save space */}
+        <div className="hidden md:block relative w-full max-w-[280px] lg:max-w-[360px] aspect-[406/568] shrink-0">
+          <Image
+            src="/images/livestream.png"
+            alt="Livestream"
+            fill
+            className="object-cover rounded-lg"
+          />
+        </div>
 
-        <div className="">
-          <div className="w-full  max-w-lg aspect-video">
+        <div className="w-full max-w-xl flex flex-col gap-4">
+          <div className="w-full aspect-video">
             <iframe
               width="100%"
               height="100%"
@@ -24,10 +26,7 @@ const LivestreamsTab = () => {
               className="rounded-lg"
             />
           </div>
-          <div>Watch On Youtube</div>
-          {/* <div>Watch On Youtube</div>
-          <div>Watch On Facebook</div>
-          <div>Listen On Mixlr</div> */}
+          <p className="text-sm font-semibold text-[#222357]">Watch On Youtube</p>
         </div>
       </div>
     </div>
