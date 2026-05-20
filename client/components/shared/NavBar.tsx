@@ -41,7 +41,7 @@ export const NavBar = () => {
                 alt="logo"
                 width={40}
                 height={40}
-                className="w-[40px] h-[40px]"
+                className="w-[40px] h-[40px] object-cover"
               />
             </div>
           </Link>
