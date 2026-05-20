@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { IoPlay } from "react-icons/io5";
 
-interface VideoCardProps {
+interface YoutubeCardProps {
   title: string;
   videoId: string;
   teacher: string;
@@ -14,7 +14,7 @@ export default function VideoCard({
   title,
   videoId,
   teacher,
-}: VideoCardProps) {
+}: YoutubeCardProps) {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const thumbnail = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;

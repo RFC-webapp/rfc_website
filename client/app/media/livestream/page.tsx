@@ -5,8 +5,9 @@ import TitleTag from "@/components/media/TitleTag";
 import Selection from "@/components/media/Selection";
 import { SearchIcon } from "lucide-react";
 import { ServiceIcon } from "@/public/icons";
-import VideoCard from "@/components/media/Youtube";
+import YoutubeCard from "@/components/media/YoutubeCard";
 import GroupChat from "@/components/media/YoutubeChat";
+import VideoCard from "@/components/media/YoutubeCard";
 
 const livestreams = [
   {

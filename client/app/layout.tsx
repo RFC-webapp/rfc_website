@@ -4,6 +4,7 @@ import "./globals.css";
 import { NavBar } from "@/components/shared/NavBar";
 import { Footer } from "@/components/shared/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import BackToTop from "@/components/shared/BackToTop";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body className={`${poppins.variable} antialiased`}>
         <NavBar />
         {children}
+        <BackToTop />
         <Toaster position="top-right" richColors closeButton />
         <Footer />
       </body>
