@@ -1,333 +1,418 @@
-import CounsellorCard from "@/components/about/CounsellorCard";
-import TeamCard from "@/components/about/TeamCard";
+"use client";
+
+import { useEffect, useState } from "react";
 import CardCarousel from "@/components/main/CardCarousel";
+import TestimonyCarousel from "@/components/main/TestimonyCarousel";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { FaBible } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaLinkedin,
+  FaBible,
+} from "react-icons/fa";
 
-const counsellor = [
-  {
-    title: "Relationship Team",
-    description:
-      "Navigating relationships can be beautiful—but also confusing. Our Relationship Team is here to walk with singles who are dating or courting, offering godly counsel, practical wisdom, confidentiality and a safe place to talk through real issues. Whether you're seeking clarity, direction, or personal growth, this team helps you build strong foundations for a Christ-centered relationship. You don’t have to figure it out alone—let us journey with you.",
-    imageSrc: "/images/counselling.png",
-    reverse: false,
-  },
-  {
-    title: "Marriage Counseling",
-    description:
-      "Whether you're preparing for marriage or already on the journey, our Marriage Counseling Team is here to support you. We provide Christ-centered guidance for couples who want to build strong foundations, overcome challenges, or simply rekindle their passion and connection. From premarital counseling to ongoing support for married couples, we offer a safe, confidential space where you can talk openly, heal deeply, and grow together. Because every marriage deserves wisdom, support, and a fresh spark of love.",
-    imageSrc: "/images/counselling.png",
-    reverse: true,
-  },
-  {
-    title: "Deacon Stephen",
-    description:
-      "The Deacon Stephen Team is dedicated to helping individuals overcome addictions and reclaim their lives through Christ. With grace, understanding, and confidentiality, they offer counseling, support, and spiritual guidance to anyone struggling with habits that feel too heavy to carry alone. This team walks beside you—not with judgment, but with hope—helping you find strength, healing, and lasting freedom. You’re not defined by your struggles. There is a way out, and you don’t have to walk it alone.",
-    imageSrc: "/images/counselling.png",
-    reverse: false,
-  },
-  {
-    title: "Believers Court",
-    description:
-      "“If any of you has a dispute with another, do you dare to take it before the ungodly for judgment instead of before the Lord’s people?” — 1 Corinthians 6:1 Guided by this principle, our Believers Court provides a confidential, Spirit-led environment where issues are resolved with integrity and compassion. Whether the conflict is personal, relational, or within ministry, this team helps restore harmony and uphold the unity of the body of Christ. Because in God’s family, peace isn’t just restored—it’s protected.",
-    imageSrc: "/images/counselling.png",
-    reverse: true,
-  },
-];
+function useScrollReveal() {
+  const [visibleSections, setVisibleSections] = useState<number[]>([]);
 
-export default function page() {
+  useEffect(() => {
+    const sections = document.querySelectorAll("[data-reveal]");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = Number(entry.target.getAttribute("data-id"));
+
+          if (entry.isIntersecting) {
+            setVisibleSections((prev) =>
+              prev.includes(id) ? prev : [...prev, id]
+            );
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
+  return visibleSections;
+}
+
+export default function Page() {
+  const visibleSections = useScrollReveal();
+
   return (
-    <div className="mt-14 mb-12">
+    <div className="mt-14 mb-12 overflow-hidden">
       <section>
-        <div className="relative w-full h-[50vh]">
-          <Image
-            priority
-            className="w-full h-full object-cover"
-            src="/images/home-bg.jpg"
-            alt="home background"
-            width={1439}
-            height={883}
-          />
+        <div className="relative w-full h-[70vh] overflow-hidden">
+          <div className="absolute inset-0 scale-110">
+            <Image
+              priority
+              className="w-full h-full object-cover"
+              src="/images/home-bg.jpg"
+              alt="home background"
+              width={1439}
+              height={883}
+            />
+          </div>
 
-          {/* Overlay content */}
-          <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white bg-black/40">
-            <h3 className="font-medium text-[16px]">ABOUT US</h3>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70" />
 
-            <h1 className="text-[24px] md:text-[64px] font-bold mb-2">
-              Rock Foundation Church
+          <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
+            <h3 className="font-medium text-[16px] tracking-[0.3em] uppercase">
+              ABOUT US
+            </h3>
+
+            <h1 className="text-[40px] md:text-[72px] font-bold mb-4 leading-tight">
+              Rock Foundation
+              <br />
+              <span className="text-[#F5C842]">Church</span>
             </h1>
 
-            <h5 className="text-[12px] md:text-[18px]">
+            <div className="w-16 h-[2px] bg-[#F5C842] mb-5" />
+
+            <h5 className="text-[14px] md:text-[20px] tracking-[0.2em] uppercase text-white/90">
               Making Mature Followers Of Christ
             </h5>
           </div>
         </div>
       </section>
 
-      <section className="w-full hidden md:flex justify-center items-center my-10">
-        <div className="flex flex-col md:flex-row gap-6 items-center">
-          <div className="w-full md:w-[280px] h-[380px] rounded-3xl overflow-hidden flex justify-center">
+      <section
+        data-reveal
+        data-id="1"
+        className="w-full hidden md:flex justify-center items-center my-20 overflow-hidden"
+      >
+        <div
+          className="flex flex-col md:flex-row gap-6 items-center transition-all duration-1000"
+          style={{
+            opacity: visibleSections.includes(1) ? 1 : 0,
+            transform: visibleSections.includes(1)
+              ? "translateY(0)"
+              : "translateY(60px)",
+          }}
+        >
+          <div className="w-full md:w-[280px] h-[380px] rounded-3xl overflow-hidden">
             <Image
               src="/images/about-1.png"
               alt="About Us"
               width={280}
               height={380}
-              className="object-contain"
+              className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
             />
           </div>
-          <div className="w-full md:w-[340px] h-[460px] rounded-3xl overflow-hidden flex justify-center">
+
+          <div className="w-full md:w-[340px] h-[460px] rounded-3xl overflow-hidden">
             <Image
               src="/images/about-2.png"
               alt="About Us"
               width={340}
               height={460}
-              className="object-contain"
+              className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
             />
           </div>
-          <div className="w-full md:w-[280px] h-[380px] rounded-3xl overflow-hidden flex justify-center">
+
+          <div className="w-full md:w-[280px] h-[380px] rounded-3xl overflow-hidden">
             <Image
               src="/images/about-3.png"
               alt="About Us"
               width={280}
               height={380}
-              className="object-contain"
+              className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
             />
           </div>
         </div>
       </section>
 
-      <div
-      // className="w-full h-full object-cover"
-      ></div>
+      <section
+        data-reveal
+        data-id="2"
+        className="flex flex-col md:flex-row justify-center items-center gap-10 my-20 px-5"
+      >
+        <div
+          className="w-full md:w-[372px] text-center md:text-left transition-all duration-1000"
+          style={{
+            opacity: visibleSections.includes(2) ? 1 : 0,
+            transform: visibleSections.includes(2)
+              ? "translateX(0)"
+              : "translateX(-50px)",
+          }}
+        >
+          <h5 className="font-normal text-[16px] text-[#222357] uppercase tracking-[0.2em]">
+            OUR MISSION & VISION
+          </h5>
 
-      <section className="flex flex-col md:flex-row justify-center items-center gap-10 my-10 px-5">
-        <div className="w-full md:w-[372px] text-center md:text-left">
-          <h5 className="font-normal text-[16px]">OUR MISSION & VISION</h5>
-          <h2 className="font-semibold text-[32px]">
-            From Freedom to Fruitfulness
+          <h2 className="font-semibold text-[32px] md:text-[42px] leading-tight mt-2 mb-5">
+            From Freedom To Fruitfulness
           </h2>
-          <p className="font-normal text-[16px]">
-            At Rock Foundation Church, our mission is to lead people into the
-            freedom found only in Jesus Christ and to equip them to live
-            fruitful, purpose-driven lives. We exist to see hearts transformed,
-            families restored, and destinies awakened through the life-changing
-            power of God’s Word and the Holy Spirit.
+
+          <p className="font-normal text-[16px] text-black/70 leading-8">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
 
-        <div className="w-full md:w-[372px] text-center md:text-left">
-          <h5 className="font-normal text-[16px]">WHAT WE DO</h5>
-          <h2 className="font-semibold text-[32px]">
-            Making Matured Followers of Christ
+        <div
+          className="w-full md:w-[372px] text-center md:text-left transition-all duration-1000"
+          style={{
+            opacity: visibleSections.includes(2) ? 1 : 0,
+            transform: visibleSections.includes(2)
+              ? "translateX(0)"
+              : "translateX(50px)",
+          }}
+        >
+          <h5 className="font-normal text-[16px] text-[#222357] uppercase tracking-[0.2em]">
+            WHAT WE DO
+          </h5>
+
+          <h2 className="font-semibold text-[32px] md:text-[42px] leading-tight mt-2 mb-5">
+            Making Mature Followers Of Christ
           </h2>
-          <p className="font-normal text-[16px]">
-            We are committed to helping every believer grow from a place of
-            spiritual curiosity to spiritual maturity. Through intentional
-            teaching, discipleship, and community, we guide people into a deeper
-            relationship with Christ—one that transforms lives, strengthens
-            families, and impacts the world.
+
+          <p className="font-normal text-[16px] text-black/70 leading-8">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
       </section>
 
-      <section className="mx-auto container text-center my-15 px-4">
-        <h1 className="font-bold text-[30px] md:text-[48px]">OUR SERVICE</h1>
-        <p className="text-[16px] font-normal px-2 md:px-0 md:w-5/8 mx-auto my-6">
+      <section className="mx-auto container text-center my-24 px-4">
+        <h1 className="font-bold text-[30px] md:text-[48px]">
+          OUR SERVICE
+        </h1>
+
+        <p className="text-[16px] font-normal px-2 md:px-0 md:w-5/8 mx-auto my-6 text-black/70 leading-8">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in vo.
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
 
         <CardCarousel />
       </section>
 
-      <section className="w-full relative mb-15">
+      <section className="w-full relative mb-20">
         <Image
           src="/images/about-4.png"
           alt="About Us"
-          width={288}
-          height={384}
+          width={1440}
+          height={700}
           className="w-full h-auto object-cover"
         />
       </section>
 
-      <section className="bg-[#222357] text-white mb-15">
+      <section className="bg-[#222357] text-white mb-20">
         <div className="flex flex-col md:flex-row justify-center gap-x-[50px] mx-auto container py-[60px] items-center px-4">
-          <div className="w-full md:w-1/2 relative h-[300px] md:h-[500px]">
+          <div className="w-full md:w-1/2 relative h-[300px] md:h-[500px] rounded-2xl overflow-hidden">
             <Image
               src="/images/about-4.png"
               alt="About Us"
               fill
-              style={{ objectFit: "cover" }}
+              className="object-cover"
             />
           </div>
 
           <div className="w-full md:w-1/2 font-poppins mt-8 md:mt-0">
-            <h4 className="font-bold text-[24px] mb-4">Our lead pastor</h4>
-            <p className="font-normal text-[16px] mb-4">
+            <h4 className="font-bold text-[24px] mb-4 uppercase tracking-[0.2em] text-[#F5C842]">
+              Our Lead Pastor
+            </h4>
+
+            <p className="font-normal text-[16px] mb-4 leading-8 text-white/80">
               Rev Tunde Amosun is the visionary founder and Lead Pastor of Rock
-              Foundation Church (RFC), a church where we focus on just three
-              things: we come to Jesus, listen to His word and do them. He is
-              renowned for his dynamic preaching, teaching, and support for the
-              gospel. His mission is to help people discover and confidently
-              live out their God-given purpose through the transformative power
-              of the Gospel.
+              Foundation Church (RFC).
             </p>
-            <p className="font-normal text-[16px] mb-4">
-              Rev Tunde Amosun ministry began during his time as an
-              undergraduate at University of Lagos in 198X, when he was a final
-              year medicine student. He was a traveling minister before Rock
-              Foundation was founded. RFC is a global church with a strong
-              emphasis on teaching, missions, and empowering believers to fully
-              express their faith in all aspects of life.
+
+            <p className="font-normal text-[16px] mb-4 leading-8 text-white/80">
+              His mission is to help people discover and confidently live out
+              their God-given purpose through the transformative power of the
+              Gospel.
             </p>
-            <p className="font-normal text-[16px] mb-4">
-              Rev Tunde Amosun ministry began during his time as an
-              undergraduate at University of Lagos in 198X, when he was a final
-              year medicine student. He was a traveling minister before Rock
-              Foundation was founded. RFC is a global church with a strong
-              emphasis on teaching, missions, and empowering believers to fully
-              express their faith in all aspects of life.
-            </p>
-            <Button>Read More</Button>
+
+            <Button className="bg-[#F5C842] hover:bg-[#e8b930] text-black font-semibold">
+              Read More
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* testimony */}
-      <section className="text-center my-15 py-10 px-4">
+      <section className="text-center py-16 px-4">
         <div className="container mx-auto">
           <div className="flex justify-center">
-            <div className="flex items-center gap-2 border rounded-lg px-3 py-1 bg-white">
+            <div className="flex items-center gap-2 border rounded-lg px-3 py-1">
               <FaBible className="text-black/60" />
+
               <span className="font-bold text-[10px] text-black/60">
                 MEMBER STORIES
               </span>
             </div>
           </div>
 
-          <h1 className="text-[28px] md:text-[36px] font-black">
+          <h1 className="text-[28px] md:text-[48px] font-black mt-4">
             MY RFC EXPERIENCE
           </h1>
+
           <p className="text-[#00000080] text-[16px] md:text-[20px] font-normal pb-10">
             Read Testimonies From Our Members
           </p>
 
-          <div className="flex flex-col md:flex-row justify-between gap-10 text-left">
-            <div className="text-justify w-fit">
-              <h5 className="text-[#111827] font-semibold text-[18px] pb-3">
-                Favor in Relocation Process
-              </h5>
-              <p className="font-normal text-[16px] text-[#000000 64%]">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam,
-                sed reprehenderit delectus eaque earum adipisci aliquam hic
-                maxime, mollitia nostrum ipsam. Nihil excepturi facere autem,
-                voluptatum incidunt aperiam accusamus assumenda officiis,
-                repudiandae alias consequatur sit placeat, pariatur praesentium
-                recusandae delectus doloribus cumque voluptatibus. Consequuntur,
-                eos vel! Aspernatur placeat ea ex?
-              </p>
-              <p className="font-semibold text-[16px] pt-5 text-[#6B7280]">
-                Busayo
-              </p>
-            </div>
-
-            <div className="text-justify w-fit">
-              <h5 className="text-[#111827] font-semibold text-[18px] pb-3">
-                Favor in Relocation Process
-              </h5>
-              <p className="font-normal text-[16px] text-[#000000 64%]">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-                vero vel consequatur illo fugiat earum deleniti quis, quas,
-                perspiciatis necessitatibus, facilis veniam delectus voluptate
-                ducimus nemo dolorum deserunt dolorem recusandae. Qui
-                consequatur nihil, hic necessitatibus aut praesentium quidem
-                laudantium quasi accusamus modi velit doloribus molestiae, esse
-                non, enim mollitia corporis.
-              </p>
-              <p className="font-semibold text-[16px] pt-5 text-[#6B7280]">
-                Busayo
-              </p>
-            </div>
-          </div>
+          <TestimonyCarousel />
         </div>
       </section>
 
-      <section className="mx-auto container px-4">
-        <h3 className="text-center text-black/60 text-[16px] rounded-lg bg-black/4 px-4 py-1 w-fit mx-auto my-0">
+      <section className="mx-auto container px-4 py-24 overflow-hidden">
+        <div
+          className="text-center mb-20 transition-all duration-1000"
+          style={{
+            opacity: visibleSections.includes(7) ? 1 : 0,
+            transform: visibleSections.includes(7)
+              ? "translateY(0)"
+              : "translateY(50px)",
+          }}
+          data-reveal
+          data-id="7"
+        >
+          <h3 className="text-center text-black/60 text-[16px] rounded-lg bg-black/4 px-4 py-1 w-fit mx-auto">
           Need GODLY Counseling?
         </h3>
-        <h1 className="font bold font-poppins text-[32px] md:text-[48px] pb-14 text-center">
-          See our counselling teams
-        </h1>
 
-        <div className="flex flex-col">
-          {counsellor.map((c) => (
-            <CounsellorCard
-              key={c.title}
-              title={c.title}
-              description={c.description}
-              imageSrc={c.imageSrc}
-              reverse={c.reverse}
-            />
-          ))}
+          <h1 className="font-bold font-poppins text-[34px] md:text-[56px] mt-5 leading-tight">
+            See Our Counselling Teams
+          </h1>
         </div>
-      </section>
 
+        {[
+          {
+            title: "Relationship Team",
+            image: "/images/counseling-1.jpg",
+          },
+          {
+            title: "Marriage Counseling",
+            image: "/images/counseling-2.png",
+          },
+          {
+            title: "Youth Mentorship",
+            image: "/images/counseling-4.jpg",
+          },
+          {
+            title: "Prayer Support Team",
+            image: "/images/counseling-3.jpg",
+          },
+        ].map((item, index) => {
+          const id = index + 20;
+
+          return (
+            <div
+              key={index}
+              data-reveal
+              data-id={id}
+              className={`flex flex-col ${index % 2 === 0
+                  ? "md:flex-row"
+                  : "md:flex-row-reverse"
+                } items-center justify-between gap-10 md:gap-16 mb-28`}
+            >
+              {/* TEXT */}
+              <div
+                className="w-full md:w-1/2 transition-all duration-1000"
+                style={{
+                  opacity: visibleSections.includes(id) ? 1 : 0,
+                  transform: visibleSections.includes(id)
+                    ? "translateX(0)"
+                    : index % 2 === 0
+                      ? "translateX(-80px)"
+                      : "translateX(80px)",
+                }}
+              >
+                <span className="uppercase tracking-[0.3em] text-[#222357] text-[12px] font-semibold">
+                  Counseling Unit
+                </span>
+
+                <h1 className="font-bold text-[30px] md:text-[42px] font-poppins mt-3 mb-5 leading-tight">
+                  {item.title}
+                </h1>
+
+                <p className="leading-8 text-black/70 text-[16px]">
+                  Our counseling teams are committed to helping individuals and
+                  families grow spiritually, emotionally, and mentally through
+                  biblical guidance, prayer, mentorship, and practical support.
+                  Whether you are navigating relationships, personal struggles,
+                  purpose, or spiritual growth, our team is here to walk with you
+                  every step of the way.
+                </p>
+
+                <Button className="mt-7 bg-[#222357] hover:bg-[#1b1c49] text-white px-8">
+                  Learn More
+                </Button>
+              </div>
+
+              {/* IMAGE */}
+              <div
+                className="w-full md:w-1/2 transition-all duration-1000"
+                style={{
+                  opacity: visibleSections.includes(id) ? 1 : 0,
+                  transform: visibleSections.includes(id)
+                    ? "translateX(0)"
+                    : index % 2 === 0
+                      ? "translateX(80px)"
+                      : "translateX(-80px)",
+                  transitionDelay: "200ms",
+                }}
+              >
+                <div className="relative overflow-hidden group shadow-xl">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={700}
+                    height={450}
+                    quality={100}
+                    className="w-full h-[280px] md:h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80" />
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </section>
       <section className="mx-auto container my-25 text-center px-4">
-        <h3 className="font-normal text-[16px] font-poppins">PREACHING TEAM</h3>
-        <h1 className="font-bold font-poppins text-[32px] md:text-[48px] pb-8">
-          Meet our Inspirational team
+        <h3 className="font-normal text-[16px] font-poppins uppercase tracking-[0.2em] text-[#222357]">
+          PREACHING TEAM
+        </h3>
+
+        <h1 className="font-bold font-poppins text-[32px] md:text-[48px] pb-12">
+          Meet Our Inspirational Team
         </h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 text-center font-roboto place-items-center">
-        {/* <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 text-center font-roboto"> */}
-          <TeamCard
-            name="Rev. Tunde Amosun"
-            role="Head Pastor"
-            imageSrc="/images/home.png"
-            socials={{
-              facebook: "https://facebook.com/...",
-              twitter: "https://twitter.com/...",
-              linkedin: "https://linkedin.com/...",
-            }}
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 place-items-center font-roboto">
+          {[1, 2, 3, 4].map((item) => (
+            <div
+              key={item}
+              className="w-full max-w-[302px] h-[366px] bg-white shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col justify-center items-center text-center rounded-2xl"
+            >
+              <Image
+                src="/images/home.jfif"
+                alt=""
+                width={152}
+                height={152}
+                className="rounded-full mb-10 object-cover"
+              />
 
-          <TeamCard
-            name="Rev. Mrs Kemi Amosun"
-            role="Pastor"
-            imageSrc="/images/home.png"
-            socials={{
-              facebook: "https://facebook.com/",
-              twitter: "https://twitter.com/",
-              linkedin: "https://linkedin.com/",
-            }}
-          />
+              <h1 className="font-bold text-[16px]">
+                Rev. Tunde Amosun
+              </h1>
 
-          <TeamCard
-            name="Prof. Ade Enikome"
-            role="Pastor"
-            imageSrc="/images/home.png"
-            socials={{
-              facebook: "https://facebook.com/",
-              twitter: "https://twitter.com/",
-              linkedin: "https://linkedin.com/",
-            }}
-          />
+              <p className="text-black/70 pt-2">
+                Head Pastor, Church
+              </p>
 
-          <TeamCard
-            name="Prof. Olushola Kehinde"
-            role="Pastor"
-            imageSrc="/images/home.png"
-            socials={{
-              facebook: "https://facebook.com/",
-              twitter: "https://twitter.com/",
-              linkedin: "https://linkedin.com/",
-            }}
-          />
+              <div className="flex justify-center pt-4 gap-x-5">
+                <FaFacebook />
+                <FaTwitter />
+                <FaLinkedin />
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </div>
