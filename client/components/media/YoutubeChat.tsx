@@ -1,52 +1,94 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Talk from "talkjs";
-import "@talkjs/react-components/default.css";
 
 export default function GroupChat() {
+  const chatRef = useRef<HTMLDivElement | null>(null);
+
   useEffect(() => {
-    const initTalkJS = async () => {
+    let session: Talk.Session | null = null;
+    let chatbox: Talk.Chatbox | null = null;
+
+    const initChat = async () => {
+      if (!chatRef.current) return;
+
       await Talk.ready;
 
-      // Generate a random guest user
-      const guestUserId = `guest_${Math.floor(Math.random() * 100000)}`;
-      const guest = new Talk.User({
-        id: guestUserId,
-        name: `Guest`,
-        email: `${guestUserId}@example.com`,
-        photoUrl: "https://randomuser.me/api/portraits/lego/1.jpg",
+      const guestId = `guest_${Math.floor(
+        Math.random() * 1000000
+      )}`;
+
+      const currentUser = new Talk.User({
+        id: guestId,
+        name: `Guest ${guestId.slice(-4)}`,
+        email: `${guestId}@gmail.com`,
+        photoUrl: "https://talkjs.com/images/avatar-1.jpg",
+        welcomeMessage:
+          "Welcome to RFC livestream chat",
       });
 
-      // Create session
-      const session = new Talk.Session({
+      session = new Talk.Session({
         appId: "tS7Q6UBv",
-        me: guest,
+        me: currentUser,
       });
 
-      // Get or create a single group conversation for all guests
-      const conversation = session.getOrCreateConversation("group-chat");
-      conversation.setParticipant(guest); // every new visitor is a participant
-      conversation.setAttributes({ subject: "Comments" });
+      const admin = new Talk.User({
+        id: "rfc-admin",
+        name: "RFC Admin",
+        email: "admin@rfc.com",
+        photoUrl: "https://talkjs.com/images/avatar-2.jpg",
+        welcomeMessage:
+          "Welcome to RFC livestream service",
+      });
 
-      // Mount chatbox
-      const chatbox = session.createChatbox();
+      const conversation =
+        session.getOrCreateConversation(
+          "rfc-global-livestream-chat"
+        );
+
+      conversation.setParticipant(currentUser);
+      conversation.setParticipant(admin);
+
+      conversation.setAttributes({
+        subject: "RFC Livestream Chat",
+      });
+
+      chatbox = session.createChatbox({
+        showChatHeader: false,
+      });
+
       chatbox.select(conversation);
-      chatbox.mount(document.getElementById("talkjs-container")!);
 
-      // Hide header for simpler "comment section" look
-      const chatboxEl = document.getElementById("talkjs-container")!;
-      chatboxEl.querySelector(".chatbox-header")?.remove();
+      await chatbox.mount(chatRef.current);
     };
 
-    initTalkJS();
+    initChat();
+
+    return () => {
+      chatbox?.destroy();
+      session?.destroy();
+    };
   }, []);
 
   return (
-    <div
-      id="talkjs-container"
-      className="h-[400px] md:h-[600px] rounded-lg"
-      // style={{ width: "400px", height: "600px" }}
-    />
+    <div className="w-full h-full">
+      <div className="w-full bg-white border border-[#E4E7EC] rounded-2xl shadow-sm overflow-hidden">
+        <div className="bg-[#222357] px-5 py-4">
+          <h2 className="text-white font-semibold text-base">
+            RFC Live Chat
+          </h2>
+
+          <p className="text-white/70 text-sm mt-1">
+            Chat with RFC Admin and others live
+          </p>
+        </div>
+
+        <div
+          ref={chatRef}
+          className="w-full h-[500px]"
+        />
+      </div>
+    </div>
   );
 }

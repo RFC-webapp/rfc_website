@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {},
   images: {
     remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "i.ytimg.com",
+      },
       {
         protocol: "https",
         hostname: "img.youtube.com",
